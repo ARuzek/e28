@@ -1,0 +1,115 @@
+/** Amelia Ruzek e28
+*  The css on here is ...meh... but I didn't want to spend too much time on this.
+*/
+body {
+  display: grid;
+  place-items: center;
+  background-color: #9d948f;
+}
+#background {
+  position: ;
+  width: 800px;
+}
+
+#person {
+  position: absolute;
+  left: 20px;
+  bottom: 0px;
+  transition: left 0.25s;
+  margin-bottom: 0;
+  width: 100px;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.39));
+}
+
+#tree1,
+#tree2,
+#tree3,
+#tree4 {
+  position: absolute;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.219));
+}
+
+#tree1 {
+  left: 300px;
+  bottom: 20px;
+  width: 150px;
+}
+
+#tree2 {
+  right: 50px;
+  bottom: 10px;
+  width: 200px;
+}
+
+#tree3 {
+  right: 300px;
+  bottom: 50px;
+  width: 250px;
+}
+
+#tree4 {
+  left: 50px;
+  bottom: 30px;
+  width: 200px;
+}
+
+#start img {
+  width: 500px;
+  filter: drop-shadow(10px 10px 40px black);
+}
+
+#start {
+  background: #00000000;
+  border: none;
+}
+
+@keyframes shakeDown {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(40deg);
+  }
+
+  50% {
+    transform: rotate(-40deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.treeShake {
+  animation-name: shakeDown;
+  animation-iteration-count: 2;
+  animation-duration: 1s;
+  transform: rotate(0deg);
+}
+
+p:first-of-type {
+  position: absolute;
+  font-size: 30px;
+  top: 20px;
+  left: 10px;
+  font-family: "Long Cang", cursive;
+  background-color: #c6c0c2;
+  padding: 16px;
+}
+
+#imDone button {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  font-family: "Long Cang", cursive;
+  font-size: 30px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}

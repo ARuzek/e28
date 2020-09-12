@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Amelia Ruzek e28
+    I drew these pictures in a few minutes and threw them on dropbox for the jsfiddle -->
+    <img
+      id="background"
+      src="assets/landscape.jpg"
+      alt="this is the background"
+    />
+    <div>
+      <img id="tree1" src="assets/tree1.png" alt="this is a tree" />
+      <img id="tree2" src="assets/tree2.png" alt="this is a tree" />
+      <img id="tree3" src="assets/tree3.png" alt="this is a tree" />
+      <img id="tree4" src="assets/tree5.png" alt="this is a tree" />
+      <img id="person" src="assets/person.png" alt="this is you" />
+      <p>
+        You have collected this many fruits and nuts from the trees:
+        <span>0</span>
+      </p>
+    </div>
+    <dialog id="start">
+      <img
+        src="assets/playgame.png"
+        alt="use the arrow keys to move and the space key to shake a tree."
+      />
+    </dialog>
+    <form id="imDone">
+      <button>I'm done playing this game</button>
+    </form>
+    <dialog close id="end">
+      <p>Thanks for playing!</p>
+      <form id="playAgain">
+        <input type="radio" name="funornot" value="fun" checked />
+        <label for="fun">It was fun.</label>
+        <input type="radio" name="funornot" value="notfun" unchecked />
+        <label for="notfun">It was not fun.</label>
+        <button>I want to play again</button>
+      </form>
+    </dialog>
+    <script src="script.js"></script>
+  </body>
+</html>
