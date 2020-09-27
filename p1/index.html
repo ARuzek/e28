@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main id="app" v-cloak></main>
+    <main id="app" v-cloak>
+      <div v-for="room in house">This is called {{room.name}}</div>
+      <dialog>{{hauntedHappenings}}</dialog>
+      <p>{{getTime}}</p>
+      <form>
+        <button>Explore the Haunted House</button>
+      </form>
+    </main>
   </body>
 </html>
