@@ -1,12 +1,27 @@
 <!--Amelia Ruzek DGMDE28-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
     <h1>Practice Application</h1>
-</body>
+    <div id="app">
+      <label for="shoppinglist">Remember to get...</label>
+      <input
+        type="text"
+        id="shoppinglist"
+        name="shoppinglist"
+        v-model="thing"
+      />
+      <label for="quantity">How many?</label>
+      <input type="text" id="quantity" name="quantity" v-model="amount" />
+      <button @click="addtolist">Add to List</button>
+      <li v-if="showlist" v-for="stuff in shoppinglist">{{ stuff }}</li>
+    </div>
+  </body>
 </html>
