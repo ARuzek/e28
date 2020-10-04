@@ -1,3 +1,17 @@
 [v-cloak] {
   display: none;
 }
+
+.house {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+.room {
+  height: 20vh;
+  min-width: 200px;
+  background-color: orange;
+  border: 2px solid black;
+  flex-wrap: nowrap;
+}

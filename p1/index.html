@@ -9,12 +9,19 @@
   </head>
   <body>
     <main id="app" v-cloak>
-      <div v-for="room in house">This is called {{room.name}}</div>
+      <section class="house">
+        <div class="room" v-for="room in visibleHouse">
+          This is called {{room.name}}
+        </div>
+      </section>
       <dialog>{{hauntedHappenings}}</dialog>
-      <p>{{getTime}}</p>
-      <form>
-        <button>Explore the Haunted House</button>
-      </form>
+      <p>{{clock}}</p>
+      <button @click.prevent="moveLeft">🡰</button>
+      <button @click.prevent="moveRight">🡲</button>
+      <!-- <button @click.prevent="moveUp">🡱</button>
+      <button @click.prevent="moveDown">🡳</button> -->
+
+      <button @click.prevent="timer">Explore the Haunted House</button>
     </main>
   </body>
 </html>

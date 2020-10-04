@@ -7,6 +7,14 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
     <script src="script.js" defer></script>
+    <style>
+      .feedback {
+        background: green;
+      }
+      .error {
+        background: red;
+      }
+    </style>
   </head>
   <body>
     <h1>Practice Application</h1>
@@ -22,6 +30,23 @@
       <input type="text" id="quantity" name="quantity" v-model="amount" />
       <button @click="addtolist">Add to List</button>
       <li v-if="showlist" v-for="stuff in shoppinglist">{{ stuff }}</li>
+    </div>
+    <div id="wordscramble">
+      <h1>Word Scramble</h1>
+      <label
+        >Enter your player name: <input v-model="name" type="text"
+      /></label>
+      <button @click="showGame = true">Let's Play</button>
+      <div v-if="showGame">
+        <p>Game on, {{name}}</p>
+        <p>Your mystery word is: {{mysteryword}}</p>
+        <p>Hint: {{mysterywordhint}}</p>
+        <label>Your guess: <input v-model="guess" type="text" /></label>
+        <button @click="showFeedback=true">Submit Guess</button>
+        <p :class="{ error: hasError }" class="feedback" v-if="showFeedback">
+          {{getfeedback}}
+        </p>
+      </div>
     </div>
   </body>
 </html>
