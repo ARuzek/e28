@@ -1,3 +1,14 @@
+Vue.component("feedback-text", {
+  data() {
+    return {};
+  },
+  props: ["getFeedback"],
+  template: `
+  <p >
+  {{getFeedback}}
+</p>`,
+});
+
 let app = new Vue({
   el: "#app",
   data: {
@@ -32,7 +43,7 @@ let wordscramble = new Vue({
   },
   methods: {},
   computed: {
-    getfeedback() {
+    getFeedback() {
       if (this.guess == this.answer) {
         return "Correct Answer";
       } else {

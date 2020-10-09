@@ -43,9 +43,12 @@
         <p>Hint: {{mysterywordhint}}</p>
         <label>Your guess: <input v-model="guess" type="text" /></label>
         <button @click="showFeedback=true">Submit Guess</button>
-        <p :class="{ error: hasError }" class="feedback" v-if="showFeedback">
-          {{getfeedback}}
-        </p>
+        <feedback-text
+          get-feedback="{{getFeedback}}"
+          :class="{ error: hasError }"
+          class="feedback"
+          v-if="showFeedback"
+        ></feedback-text>
       </div>
     </div>
   </body>
