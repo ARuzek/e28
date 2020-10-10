@@ -5,22 +5,21 @@
     <meta charset="utf-8" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
     <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main id="app" v-cloak>
+      <h1>Haunted House</h1>
       <section class="house">
         <div class="room" v-for="room in visibleHouse">
-          This is called {{room.name}}
+          <img :src="'illustration/Haunted_House_' + room.name +'.svg'" alt="another spooky room"/>
         </div>
       </section>
       <dialog>{{hauntedHappenings}}</dialog>
       <p>{{clock}}</p>
-      <button @click.prevent="moveLeft">🡰</button>
-      <button @click.prevent="moveRight">🡲</button>
-      <!-- <button @click.prevent="moveUp">🡱</button>
-      <button @click.prevent="moveDown">🡳</button> -->
-
+      <button @click.prevent="moveRight">Next Room ></button>
+      <button @click.prevent="playAgain">Play Again</button>
       <button @click.prevent="timer">Explore the Haunted House</button>
     </main>
   </body>
