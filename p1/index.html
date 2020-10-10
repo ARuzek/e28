@@ -3,6 +3,7 @@
   <head>
     <title>e28 Project 1</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
     <script src="script.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap" rel="stylesheet">
@@ -11,16 +12,24 @@
   <body>
     <main id="app" v-cloak>
       <h1>Haunted House</h1>
-      <section class="house">
+      <p v-if="playing" class="clock">{{clock}}</p>
+      <section class="house" v-if="playing">
+        
         <div class="room" v-for="room in visibleHouse">
           <img :src="'illustration/Haunted_House_' + room.name +'.svg'" alt="another spooky room"/>
         </div>
       </section>
-      <dialog>{{hauntedHappenings}}</dialog>
-      <p>{{clock}}</p>
-      <button @click.prevent="moveRight">Next Room ></button>
-      <button @click.prevent="playAgain">Play Again</button>
-      <button @click.prevent="timer">Explore the Haunted House</button>
+      <section v-if="playing">
+        <button @click.prevent="moveRight">Next Room ></button>
+        <dialog :open="adventure">
+          <p>Do you choose  this or that?</p>
+          <button @click.prevent="endGame">That></button>
+        </dialog>
+      </section>
+      <button @click.prevent="playAgain" v-if="!playing && round>1">Play Again</button>
+      <button @click.prevent="timer" v-if="!playing && round==1">Explore the Haunted House</button>
+      <p v-if="!playing && round>1">Round {{round - 1}}: You made it though the house in {{stopClock}} seconds.</p>
+
     </main>
   </body>
 </html>

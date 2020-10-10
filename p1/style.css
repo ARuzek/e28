@@ -25,7 +25,20 @@ body{
   color: orange; 
 }
 
+button {
+  background-color: orange;
+  color: black; 
+  font-family: 'Lakki Reddy', cursive;
+font-size: 24px;
+}
+
 h1{
   text-align: center;
   font-size: 40px;
+}
+
+.clock {
+  text-align: center;
+  font-size: 24px;
+  color: limegreen;
 }

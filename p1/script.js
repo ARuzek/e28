@@ -1,7 +1,10 @@
 let app = new Vue({
   el: "#app",
   data: {
-    stopclock: 0,
+    playing: false,
+    adventure: false,
+    round: 1,
+    stopClock: 0,
     clock: 0,
     currentRoom: 0,
     hauntedHappenings: "something happened",
@@ -19,6 +22,7 @@ let app = new Vue({
   },
   methods: {
     timer() {
+      this.playing = true;
       setInterval(() => {
         this.clock++;
       }, 1000);
@@ -26,11 +30,21 @@ let app = new Vue({
     moveRight() {
       this.currentRoom++;
       this.visibleHouse.push(this.house[this.currentRoom]);
+      this.adventure = true;
     },
     playAgain() {
       this.currentRoom = 0;
       this.visibleHouse = [{ name: "Observatory" }];
       this.clock = 0;
+      this.playing = true;
+      
     },
+    endGame() {
+      this.round++;
+      this.playing = false;
+      this.stopClock = this.clock; 
+      
+
+    }
   },
 });
