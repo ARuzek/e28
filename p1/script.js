@@ -1,3 +1,14 @@
+Vue.component("feedback-text", {
+  data() {
+    return {};
+  },
+  props: ["round", "stop"],
+  template: `
+  <p >
+  Round {{round - 1}}: You made it though the house in {{stop}} seconds.
+</p>`,
+});
+
 let app = new Vue({
   el: "#app",
   data: {
@@ -37,14 +48,11 @@ let app = new Vue({
       this.visibleHouse = [{ name: "Observatory" }];
       this.clock = 0;
       this.playing = true;
-      
     },
     endGame() {
       this.round++;
       this.playing = false;
-      this.stopClock = this.clock; 
-      
-
-    }
+      this.stopClock = this.clock;
+    },
   },
 });

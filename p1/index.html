@@ -28,7 +28,9 @@
       </section>
       <button @click.prevent="playAgain" v-if="!playing && round>1">Play Again</button>
       <button @click.prevent="timer" v-if="!playing && round==1">Explore the Haunted House</button>
-      <p v-if="!playing && round>1">Round {{round - 1}}: You made it though the house in {{stopClock}} seconds.</p>
+      <div v-if="!playing && round>1">
+        <feedback-text :round="round" :stop="stopClock"></feedback-text>
+      </div>
 
     </main>
   </body>
