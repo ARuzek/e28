@@ -12,25 +12,30 @@
   <body>
     <main id="app" v-cloak>
       <h1>Haunted House</h1>
-      <p v-if="playing" class="clock">{{clock}}</p>
+      <section class="gameData">
+        <button @click.prevent="timer" v-if="!playing && round==1">Explore the Haunted House</button>
+        <p v-if="playing" class="clock">{{clock}}</p> 
+        <h2 v-if="!playing && round>1">Poor choice! I do believe you may be trapped in this haunted house forever...</h2>       
+        <div v-if="!playing && round" v-for="game in gameSave">
+          <feedback-text :round="game.game" :stop="game.time" :rooms="game.rooms"></feedback-text>
+        </div>
+        <button @click.prevent="playAgain" v-if="!playing && round>1">Play Again</button>
+      </section>
       <section class="house" v-if="playing">
-        
         <div class="room" v-for="room in visibleHouse">
           <img :src="'illustration/Haunted_House_' + room.name +'.svg'" alt="another spooky room"/>
         </div>
       </section>
       <section v-if="playing">
-        <button @click.prevent="moveRight">Next Room ></button>
         <dialog :open="adventure">
-          <p>Do you choose  this or that?</p>
-          <button @click.prevent="endGame">That></button>
+          <h3 v-show="currentRoom == 0">Upon entering the house...</h3>
+          <h3 v-show="currentRoom != 0">Congrats, you survived...this time.</h3>
+          <h4>{{house[currentRoom].mystery}}</h4>
+          <button @click.prevent="moveRight">{{house[currentRoom].doThis}}</button>
+          <button @click.prevent="endGame">{{house[currentRoom].doThat}}</button>
         </dialog>
       </section>
-      <button @click.prevent="playAgain" v-if="!playing && round>1">Play Again</button>
-      <button @click.prevent="timer" v-if="!playing && round==1">Explore the Haunted House</button>
-      <div v-if="!playing && round>1">
-        <feedback-text :round="round" :stop="stopClock"></feedback-text>
-      </div>
+      
 
     </main>
   </body>

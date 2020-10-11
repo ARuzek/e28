@@ -2,10 +2,10 @@ Vue.component("feedback-text", {
   data() {
     return {};
   },
-  props: ["round", "stop"],
+  props: ["round", "stop", "rooms"],
   template: `
   <p >
-  Round {{round - 1}}: You made it though the house in {{stop}} seconds.
+  Round {{round - 1}}: You made it though the {{rooms}} rooms in the house in {{stop}} seconds.
 </p>`,
 });
 
@@ -13,23 +13,28 @@ let app = new Vue({
   el: "#app",
   data: {
     playing: false,
-    adventure: false,
+    adventure: true,
     round: 1,
     stopClock: 0,
     clock: 0,
     currentRoom: 0,
-    hauntedHappenings: "something happened",
     house: [
-      { name: "Observatory" },
-      { name: "Library" },
-      { name: "Basement" },
-      { name: "Greenhouse" },
-      { name: "Attic" },
-      { name: "Parlor" },
-      { name: "Lounge" },
-      { name: "Powder" },
+      {
+        name: "Observatory",
+        mystery: "You hear the flutter of bat wings.",
+        doThis: "search and destroy all vampires",
+        doThat: "freeze in fear",
+      },
+      { name: "Library", mystery: "", doThis: "", doThat: "" },
+      { name: "Basement", mystery: "", doThis: "", doThat: "" },
+      { name: "Greenhouse", mystery: "", doThis: "", doThat: "" },
+      { name: "Attic", mystery: "", doThis: "", doThat: "" },
+      { name: "Parlor", mystery: "", doThis: "", doThat: "" },
+      { name: "Lounge", mystery: "", doThis: "", doThat: "" },
+      { name: "Powder", mystery: "", doThis: "", doThat: "" },
     ],
     visibleHouse: [{ name: "Observatory" }],
+    gameSave: [],
   },
   methods: {
     timer() {
@@ -50,9 +55,14 @@ let app = new Vue({
       this.playing = true;
     },
     endGame() {
-      this.round++;
       this.playing = false;
       this.stopClock = this.clock;
+      this.gameSave.push({
+        game: this.round,
+        time: this.stopClock,
+        rooms: this.visibleHouse.length,
+      });
+      this.round++;
     },
   },
 });
