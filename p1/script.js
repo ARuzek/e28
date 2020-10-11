@@ -5,7 +5,7 @@ Vue.component("feedback-text", {
   props: ["round", "stop", "rooms"],
   template: `
   <p >
-  Round {{round - 1}}: You made it though the {{rooms}} rooms in the house in {{stop}} seconds.
+  Round {{round}}: You made it though the {{rooms}} rooms in the house in {{stop}} seconds.
 </p>`,
 });
 
@@ -22,13 +22,34 @@ let app = new Vue({
       {
         name: "Observatory",
         mystery: "You hear the flutter of bat wings.",
-        doThis: "search and destroy all vampires",
-        doThat: "freeze in fear",
+        doThis: "Search and destroy all vampires",
+        doThat: "Freeze in fear",
       },
-      { name: "Library", mystery: "", doThis: "", doThat: "" },
-      { name: "Basement", mystery: "", doThis: "", doThat: "" },
-      { name: "Greenhouse", mystery: "", doThis: "", doThat: "" },
-      { name: "Attic", mystery: "", doThis: "", doThat: "" },
+      {
+        name: "Library",
+        mystery: "You see a ghost clearly visible in front of you. ",
+        doThis: "Attempt to make conversation",
+        doThat: "Run away",
+      },
+      {
+        name: "Basement",
+        mystery: "There's a strange liquid dripping on the stone floor.",
+        doThis: "It's just leaky plumbing",
+        doThat: "Take a closer look",
+      },
+      {
+        name: "Greenhouse",
+        mystery:
+          "The plants seem to be moving up the walls toward the moonlight.",
+        doThis: "Collect a specimen",
+        doThat: "Search for edible produce",
+      },
+      {
+        name: "Attic",
+        mystery: "You feel a rodent brush against your leg.",
+        doThis: "Stay calm",
+        doThat: "Scream!",
+      },
       { name: "Parlor", mystery: "", doThis: "", doThat: "" },
       { name: "Lounge", mystery: "", doThis: "", doThat: "" },
       { name: "Powder", mystery: "", doThis: "", doThat: "" },
@@ -47,6 +68,14 @@ let app = new Vue({
       this.currentRoom++;
       this.visibleHouse.push(this.house[this.currentRoom]);
       this.adventure = true;
+    },
+    flipACoin() {
+      let coin = Math.random();
+      if (coin <= 0.5) {
+        this.moveRight();
+      } else {
+        this.endGame();
+      }
     },
     playAgain() {
       this.currentRoom = 0;

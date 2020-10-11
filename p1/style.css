@@ -13,7 +13,6 @@
   justify-content: flex-end;
 }
 .room {
-  height: 20vh;
   min-width: 200px;
   flex-wrap: nowrap;
 }
@@ -49,10 +48,16 @@ h3 {
 }
 h4 {
   font-size: 20px;
+  font-weight: normal;
 }
 
 .clock {
   text-align: center;
   font-size: 24px;
   color: limegreen;
+}
+
+.adventure,
+h2 {
+  color: white;
 }

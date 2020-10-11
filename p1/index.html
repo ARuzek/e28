@@ -26,14 +26,14 @@
           <img :src="'illustration/Haunted_House_' + room.name +'.svg'" alt="another spooky room"/>
         </div>
       </section>
-      <section v-if="playing">
-        <dialog :open="adventure">
+      <section class="adventure" v-if="playing">
+        <div v-show="adventure">
           <h3 v-show="currentRoom == 0">Upon entering the house...</h3>
           <h3 v-show="currentRoom != 0">Congrats, you survived...this time.</h3>
           <h4>{{house[currentRoom].mystery}}</h4>
-          <button @click.prevent="moveRight">{{house[currentRoom].doThis}}</button>
-          <button @click.prevent="endGame">{{house[currentRoom].doThat}}</button>
-        </dialog>
+          <button @click.prevent="flipACoin">{{house[currentRoom].doThis}}</button>
+          <button @click.prevent="flipACoin">{{house[currentRoom].doThat}}</button>
+        </div>
       </section>
       
 
