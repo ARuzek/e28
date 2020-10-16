@@ -20,6 +20,30 @@ let app = new Vue({
     currentRoom: 0,
     house: [
       {
+        name: "Attic",
+        mystery: "You feel a rodent brush against your leg.",
+        doThis: "Stay calm",
+        doThat: "Scream!",
+      },
+      {
+        name: "Lounge",
+        mystery: "A huge spider web fills the room.",
+        doThis: "Start dusting",
+        doThat: "Look around for spiders",
+      },
+      {
+        name: "Parlor",
+        mystery: "The grandfather clock strikes midnight.",
+        doThis: "Listen for the undead",
+        doThat: "Check your watch for accuracy",
+      },
+      {
+        name: "Powder",
+        mystery: "You see a large mirror with words written in blood.",
+        doThis: "Ew. Gross...",
+        doThat: "Try to decipher the message",
+      },
+      {
         name: "Observatory",
         mystery: "You hear the flutter of bat wings.",
         doThis: "Search and destroy all vampires",
@@ -32,12 +56,6 @@ let app = new Vue({
         doThat: "Run away",
       },
       {
-        name: "Basement",
-        mystery: "There's a strange liquid dripping on the stone floor.",
-        doThis: "It's just leaky plumbing",
-        doThat: "Take a closer look",
-      },
-      {
         name: "Greenhouse",
         mystery:
           "The plants seem to be moving up the walls toward the moonlight.",
@@ -45,31 +63,13 @@ let app = new Vue({
         doThat: "Search for edible produce",
       },
       {
-        name: "Attic",
-        mystery: "You feel a rodent brush against your leg.",
-        doThis: "Stay calm",
-        doThat: "Scream!",
-      },
-      {
-        name: "Parlor",
-        mystery: "The grandfather clock strikes midnight.",
-        doThis: "Listen for the undead",
-        doThat: "Check your watch for accuracy",
-      },
-      {
-        name: "Lounge",
-        mystery: "A huge spider web fills the room.",
-        doThis: "Start dusting",
-        doThat: "Look around for spiders",
-      },
-      {
-        name: "Powder",
-        mystery: "You see a large mirror with words written in blood.",
-        doThis: "Ew. Gross...",
-        doThat: "Try to decipher the message",
+        name: "Basement",
+        mystery: "There's a strange liquid dripping on the stone floor.",
+        doThis: "It's just leaky plumbing",
+        doThat: "Take a closer look",
       },
     ],
-    visibleHouse: [{ name: "Observatory" }],
+    visibleHouse: [{ name: "Attic" }],
     gameSave: [],
   },
   methods: {
@@ -94,7 +94,7 @@ let app = new Vue({
     },
     playAgain() {
       this.currentRoom = 0;
-      this.visibleHouse = [{ name: "Observatory" }];
+      this.visibleHouse = [{ name: "Attic" }];
       this.clock = 0;
       this.playing = true;
     },
