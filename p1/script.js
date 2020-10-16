@@ -14,6 +14,7 @@ let app = new Vue({
   data: {
     playing: false,
     adventure: true,
+    wonGame: false,
     round: 1,
     stopClock: 0,
     clock: 0,
@@ -80,9 +81,13 @@ let app = new Vue({
       }, 1000);
     },
     moveRight() {
-      this.currentRoom++;
-      this.visibleHouse.push(this.house[this.currentRoom]);
-      this.adventure = true;
+      if (this.currentRoom < 7) {
+        this.currentRoom++;
+        this.visibleHouse.push(this.house[this.currentRoom]);
+        this.adventure = true;
+      } else {
+        this.wonGame = true;
+      }
     },
     flipACoin() {
       let coin = Math.random();

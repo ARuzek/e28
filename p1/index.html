@@ -12,7 +12,8 @@
   <body>
     <main id="app" v-cloak>
       <h1 :class="{gameTitle : !playing}">Haunted House</h1>
-      <section class="gameData">
+      <h2 v-if="wonGame">You've successfully escaped the house!</h2>
+      <section class="gameData" v-if="!wonGame">
         <button @click.prevent="timer" v-if="!playing && round==1">Explore the Haunted House</button>
         <p v-if="playing" class="clock">{{clock}}</p> 
         <h2 v-if="!playing && round>1">Poor choice! I do believe you may be trapped in this haunted house forever...</h2>       
@@ -24,12 +25,12 @@
           <button @click.prevent="gameSave = []" >Clear Past Rounds</button>
         </div>
       </section>
-      <section class="house" v-if="playing">
+      <section class="house" v-if="playing && !wonGame" >
         <div class="room" v-for="room in visibleHouse">
           <img :src="'illustration/Haunted_House_' + room.name +'.svg'" alt="another spooky room"/>
         </div>
       </section>
-      <section class="adventure" v-if="playing">
+      <section class="adventure" v-if="playing && !wonGame">
         <div v-show="adventure">
           <h3 v-show="currentRoom == 0">Upon entering the house...</h3>
           <h3 v-show="currentRoom != 0">Congrats, you survived...this time.</h3>
