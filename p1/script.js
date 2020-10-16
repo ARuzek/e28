@@ -98,6 +98,7 @@ let app = new Vue({
       this.clock = 0;
       this.playing = true;
     },
+
     endGame() {
       this.playing = false;
       this.stopClock = this.clock;

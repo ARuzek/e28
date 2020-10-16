@@ -16,10 +16,13 @@
         <button @click.prevent="timer" v-if="!playing && round==1">Explore the Haunted House</button>
         <p v-if="playing" class="clock">{{clock}}</p> 
         <h2 v-if="!playing && round>1">Poor choice! I do believe you may be trapped in this haunted house forever...</h2>       
-        <div v-if="!playing && round" v-for="game in gameSave">
+        <div v-if="!playing && round>1" v-for="game in gameSave">
           <feedback-text :round="game.game" :stop="game.time" :rooms="game.rooms"></feedback-text>
         </div>
-        <button @click.prevent="playAgain" v-if="!playing && round>1">Play Again</button>
+        <div class="options" v-if="!playing && round>1">
+          <button @click.prevent="playAgain" >Play Again</button>
+          <button @click.prevent="gameSave = []" >Clear Past Rounds</button>
+        </div>
       </section>
       <section class="house" v-if="playing">
         <div class="room" v-for="room in visibleHouse">
