@@ -20,4 +20,4 @@ I had to make the font fit the spooky game. :)
 ## Notes for instructor
 
 1. I illustrated these rooms myself for fun.
-2. It's basically just an elaborate coin flip, so to increase the odds of getting through the first room, wait at least a second or two before clicking your choice because of the pseudo-random Math.random
+2. It's basically just an elaborate coin flip. Sorry if it's hard to get past the first room.
