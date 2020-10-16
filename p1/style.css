@@ -42,6 +42,7 @@ button:hover {
 h1 {
   text-align: center;
   font-size: 40px;
+  transition: font-size ease-in-out 2s;
 }
 h3 {
   font-size: 30px;
@@ -60,4 +61,9 @@ h4 {
 .adventure,
 h2 {
   color: white;
+}
+
+.gameTitle {
+  font-size: 60px;
+  transition: font-size ease-in-out 2s;
 }

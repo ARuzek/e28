@@ -11,7 +11,7 @@
   </head>
   <body>
     <main id="app" v-cloak>
-      <h1>Haunted House</h1>
+      <h1 :class="{gameTitle : !playing}">Haunted House</h1>
       <section class="gameData">
         <button @click.prevent="timer" v-if="!playing && round==1">Explore the Haunted House</button>
         <p v-if="playing" class="clock">{{clock}}</p> 
@@ -35,8 +35,6 @@
           <button @click.prevent="flipACoin">{{house[currentRoom].doThat}}</button>
         </div>
       </section>
-      
-
     </main>
   </body>
 </html>
