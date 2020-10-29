@@ -1,28 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="ZipFoods logo" id="logo" src="@/assets/images/zipfoods-logo.png">
+    <p>ZipFoods is your one-stop-shop for convenient online grocery shopping in the greater Boston area.</p>
+    <show-featured :category='"snacks"'></show-featured>
+    <show-products></show-products>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+ import ShowProducts from './components/ShowProducts.vue'
+ import ShowFeatured from './components/ShowFeatured.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ShowProducts, 
+    ShowFeatured
+   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='scss'>
+@import '@/assets/scss/zipfoods.scss';
 </style>
