@@ -9,7 +9,7 @@
     </div>
 </template>
 <script>
-import ShowProduct from './ShowProduct.vue'
+import ShowProduct from '../ShowProduct.vue'
 import {products} from '@/products.js'
 
 export default {
