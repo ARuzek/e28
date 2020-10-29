@@ -1,23 +1,17 @@
 <template>
   <div id="app">
     <img alt="ZipFoods logo" id="logo" src="@/assets/images/zipfoods-logo.png">
-    <nav>
+<nav>
     <ul>
-        <li>
-            <a href='#' @click='page = "home"'>Home</a>
-        </li>
-        <li>
-            <a href='#' @click='page = "products"'>Products</a>
-        </li>
-        <li>
-            <a href='#' @click='page = "categories"'>Categories</a>
+        <li v-for='link in links' :key='link'>
+            <a href='#' @click='page = link'>{{ link }}</a>
         </li>
     </ul>
 </nav>
 
-<home-page v-if='page == "home"'></home-page>
-<products-page v-if='page == "products"'></products-page>
-<show-categories v-else-if='page == "categories"'></show-categories>
+<component v-bind:is='linkComponents[page]'></component>
+
+
     
 
   </div>
@@ -38,7 +32,18 @@ export default {
    },
   data() {
     return{
-      page: 'home'
+      /* Default page to start with */
+    page: 'home',
+
+    /* Store links in an array to maintain order */
+    links: ['home', 'products', 'categories'],
+
+    /* Map links to the appropriate component */
+    linkComponents: {
+    home: 'home-page',
+    products: 'products-page',
+    categories: 'show-categories'
+}
     }
   } 
 }
