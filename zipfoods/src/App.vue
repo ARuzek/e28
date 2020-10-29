@@ -1,9 +1,23 @@
 <template>
   <div id="app">
     <img alt="ZipFoods logo" id="logo" src="@/assets/images/zipfoods-logo.png">
-    <home-page></home-page>
-    <products-page></products-page>
-    <show-categories></show-categories>
+    <nav>
+    <ul>
+        <li>
+            <a href='#' @click='page = "home"'>Home</a>
+        </li>
+        <li>
+            <a href='#' @click='page = "products"'>Products</a>
+        </li>
+        <li>
+            <a href='#' @click='page = "categories"'>Categories</a>
+        </li>
+    </ul>
+</nav>
+
+<home-page v-if='page == "home"'></home-page>
+<products-page v-if='page == "products"'></products-page>
+<show-categories v-else-if='page == "categories"'></show-categories>
     
 
   </div>
@@ -21,7 +35,12 @@ export default {
    HomePage, 
    ProductsPage, 
    ShowCategories
-   }
+   },
+  data() {
+    return{
+      page: 'home'
+    }
+  } 
 }
 </script>
 
