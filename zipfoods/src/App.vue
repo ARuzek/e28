@@ -38,6 +38,7 @@ paths: {
     home: '/',
     products: '/products',
     categories: '/categories',
+    
 },
     }
   } 

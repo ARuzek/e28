@@ -10,13 +10,15 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: history,
+  mode: "history",
   routes: [
     { path: "/", component: HomePage },
     { path: "/products", component: ProductsPage },
     { path: "/categories", component: ShowCategories },
+    { path: "/products/:id", component: ProductPage, props: true },
   ],
 });
 new Vue({
+  router: router,
   render: (h) => h(App),
 }).$mount("#app");
