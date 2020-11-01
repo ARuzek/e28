@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 import HomePage from "./components/pages/HomePage.vue";
 import ProductsPage from "./components/pages/ProductsPage.vue";
 import ShowCategories from "./components/pages/ShowCategories.vue";
-
+import ProductPage from "./components/pages/ProductPage.vue";
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
