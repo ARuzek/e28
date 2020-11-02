@@ -1,11 +1,18 @@
 <template>
     <div id="products">
         <h2>Products</h2>
-        <show-product
-            v-for="product in products"
-            :key="product.id"
-            :product="product"
-        ></show-product>
+        <router-link
+                v-for="product in products"
+                v-bind:key="product.id"
+                v-bind:to="/products/ + (product.id - 1)"
+                exact
+                >
+                <show-product
+                    :key="product.id"
+                    :product="product"
+                ></show-product>
+        </router-link>
+        
     </div>
 </template>
 <script>
@@ -19,7 +26,15 @@ export default {
    },
    data(){
        return{
-products: products
+products: products,
+// paths: {
+//     1: '/products/0',   
+//     2: '/products/1',    
+//     3: '/products/2',    
+//     4: '/products/3',    
+//     5: '/products/4',    
+
+// },
        }
    }
 }

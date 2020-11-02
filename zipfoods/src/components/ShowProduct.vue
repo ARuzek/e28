@@ -5,8 +5,8 @@
             class="product-thumb"
             :src="require('@/assets/images/products/'+product.id+'.jpg')"
         />
-        <p class="product-description">{{ product.description }}</p>
-        <div class="product-price">${{ product.price }}</div>
+        <!-- <p class="product-description">{{ product.description }}</p>
+        <div class="product-price">${{ product.price }}</div> -->
     </div>
 </template>
 
