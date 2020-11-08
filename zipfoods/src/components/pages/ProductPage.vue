@@ -12,12 +12,10 @@
 </template>
 
 <script>
-import {products} from '@/products.js'
 export default {
-    props: ['id'], // comes from our dynamic segment
+    props: ['id', 'products'], // comes from our dynamic segment
     data() {
         return {
-            products: products,
         };
     }
 };

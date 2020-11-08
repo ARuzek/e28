@@ -10,9 +10,9 @@
 import {products} from '@/products.js';
 export default {
     name: 'ShowCategories',
+    props: [products],
     data(){
         return{
-            products: products
         }
     },
     computed: {

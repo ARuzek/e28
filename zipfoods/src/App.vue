@@ -15,7 +15,7 @@
     </ul>
 </nav>
 
-<router-view></router-view>
+<router-view v-bind:products="products"></router-view>
 
     
 
@@ -24,7 +24,8 @@
 
 <script>
  
- 
+import {axios} from "@/app.js";
+
 export default {
   name: 'App',
  
@@ -41,6 +42,11 @@ paths: {
     
 },
     }
+  },
+  mounted() {
+      axios.get('/product').then((response) => {
+this.products = response.data.product;
+      });
   } 
 }
 </script>
