@@ -1,31 +1,31 @@
 <template>
-  <div id="products">
-    <h2>Products</h2>
-    <router-link
-      v-for="product in products"
-      v-bind:key="product.id"
-      v-bind:to="/products/ + (product.id - 1)"
-      exact
-    >
-      <show-product :key="product.id" :product="product"></show-product>
-    </router-link>
-  </div>
+    <div id="products">
+        <h1>Products</h1>
+
+        <router-link
+            v-for="product in products"
+            :key="product.id"
+            v-bind:to="'/products/' + product.id"
+            exact
+        >
+            <show-product :product="product"></show-product>
+        </router-link>
+    </div>
 </template>
+
 <script>
-import ShowProduct from "../ShowProduct.vue";
-// import {products} from '@/products.js'
+import ShowProduct from '@/components/ShowProduct.vue';
 export default {
-  name: "ShowProducts",
-  components: {
-    ShowProduct,
-  },
-  props: ['products'],
-  data() {
-    return {
-   
-    };
-  },
-  
+    name: '',
+    components: {
+        'show-product': ShowProduct,
+    },
+    props: ['products'],
+    data: function () {
+        return {};
+    },
 };
 </script>
-<style scoped></style>
+
+<style scoped>
+</style>

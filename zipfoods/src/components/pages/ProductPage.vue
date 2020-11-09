@@ -1,22 +1,42 @@
 <template>
-    <div id='product-page' class="product">
-        <div class="product-name">
-            <h1>{{ products[id].name }}</h1></div>
-        <img
-            class="product-thumb"
-            :src="require('@/assets/images/products/'+products[id].id+'.jpg')"
-        />
-        <p class="product-description">{{ products[id].description }}</p>
-        <div class="product-price">${{ products[id].price }}</div>
+    <div id="product-page">
+        <div v-if="product">
+            <show-product
+                :product="product"
+                :includeDetails="true"
+            ></show-product>
+        </div>
+
+        <div v-if="productNotFound">
+            <p>Product {{ id }} not found.</p>
+
+            <router-link v-bind:to="'/products'"
+                >Go to all products
+            </router-link>
+        </div>
     </div>
 </template>
 
 <script>
+import ShowProduct from '@/components/ShowProduct.vue';
 export default {
-    props: ['id', 'products'], // comes from our dynamic segment
+    name: '',
+    props: ['id', 'products'],
+    components: {
+        'show-product': ShowProduct,
+    },
     data() {
-        return {
-        };
-    }
+        return {};
+    },
+    computed: {
+        product() {
+            return this.products.filter((product) => {
+                return product.id == this.id;
+            }, this.id)[0];
+        },
+        productNotFound() {
+            return this.product == null;
+        },
+    },
 };
 </script>
