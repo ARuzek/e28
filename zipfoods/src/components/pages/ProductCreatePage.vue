@@ -3,16 +3,16 @@
         <h2>Add a Product</h2>
 
         <div id="inputs">
-            <label for="name">Name</label>
+            <label for="name">*Name</label>
             <input type="text" v-model="product.name" id="name" />
 
-            <label for="sku">SKU:</label>
+            <label for="sku">*SKU:</label>
             <input type="text" v-model="product.sku" id="sku" />
 
-            <label for="price">Price:</label>
+            <label for="price">*Price:</label>
             <input type="text" v-model="product.price" id="price" />
 
-            <label for="available">Quantity available:</label>
+            <label for="available">*Quantity available:</label>
             <input type="text" v-model="product.available" id="available" />
 
             <label for="weight">Weight (in lbs):</label>
@@ -24,16 +24,18 @@
                     v-model="product.perishable"
                     id="perishable"
                 />
-                Perishable?
+                *Perishable?
             </label>
 
-            <label for="description">Description</label>
+            <label for="description">*Description</label>
             <textarea v-model="product.description" id="description"></textarea>
         </div>
 
         <button @click="addProduct">Add Product</button>
-
+        <p v-if="!showConfirmationMessage">
         {{ errors }}
+        </p>
+        <p v-if="showConfirmationMessage">Thanks, this product has been added to the inventory</p>
     </div>
 </template>
 
@@ -64,8 +66,17 @@ export default {
                 } else {
                     this.$emit('update-products');
                     this.showConfirmationMessage = true;
+                    this.product.name = '';
+                    this.product.sku = '';
+                    this.product.price = 0;
+                    this.product.available = 0;
+                    this.product.weight = 0;
+                    this.product.perishable = false;
+                    this.product.description = '';
+
                 }
             });
+            
         },
     },
 };
