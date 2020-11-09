@@ -1,3 +1,4 @@
+<!-- src/components/ShowFeatured.vue -->
 <template>
     <div id="featured">
         <h2>Featured Products</h2>
@@ -8,11 +9,17 @@
         </ul>
     </div>
 </template>
+
 <script>
-import {products} from '@/products.js'
+import { products } from '@/products.js';
 export default {
-    name: 'ShowFeatured',
+    name: 'show-featured',
     props: ['category'],
+    data: function () {
+        return {
+            products: products,
+        };
+    },
     computed: {
         featuredProducts() {
             return this.products.filter((product) => {
@@ -20,14 +27,5 @@ export default {
             }, this.category);
         },
     },
-    data() {
-        return{
-
-            products:  products
-        }
-    }
-}
+};
 </script>
-<style scoped>
-
-</style>
