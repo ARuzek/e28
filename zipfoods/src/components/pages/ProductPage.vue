@@ -1,5 +1,6 @@
 <template>
     <div id="product-page">
+        <button @click="$emit('edit-product')">Edit this product</button>
         <div v-if="product">
             <show-product
                 :product="product"

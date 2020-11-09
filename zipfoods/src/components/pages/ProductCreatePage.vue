@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-on:edit-product = "editProduct()">
         <h2>Add a Product</h2>
 
         <div id="inputs">
@@ -30,7 +30,6 @@
             <label for="description">*Description</label>
             <textarea v-model="product.description" id="description"></textarea>
         </div>
-
         <button @click="addProduct">Add Product</button>
         <p v-if="!showConfirmationMessage">
         {{ errors }}
