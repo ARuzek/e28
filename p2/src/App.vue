@@ -1,28 +1,56 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <h1>Name of Blog</h1>
+
+        <nav>
+            <ul>
+                <li>
+                    <router-link
+                        v-for="link in links"
+                        v-bind:key="link"
+                        v-bind:to="paths[link]"
+                        exact
+                        >{{ link }}</router-link
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <router-view
+            v-bind:posts="posts"
+            v-on:update-posts="updatePosts()"
+        ></router-view>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { axios } from '@/app.js';
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: 'App',
+    data() {
+        return {
+            posts: [],
+            links: ['home', 'posts', 'create new post'],
+            paths: {
+                home: '/',
+                posts: '/posts',
+                'create new post': '/posts/new',
+            },
+        };
+    },
+    methods: {
+        updatePosts() {
+            axios.get('post').then((response) => {
+                this.posts = response.data.product;
+            });
+        },
+    },
+    mounted() {
+        this.updatePosts();
+    },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import '@/assets/style.css';
 </style>
