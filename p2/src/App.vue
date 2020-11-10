@@ -41,7 +41,7 @@ export default {
     methods: {
         updatePosts() {
             axios.get('post').then((response) => {
-                this.posts = response.data.product;
+                this.posts = response.data.post;
             });
         },
     },
