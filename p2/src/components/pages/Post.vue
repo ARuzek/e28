@@ -23,7 +23,7 @@ export default {
     name: '',
     props: ['id', 'posts'],
     components: {
-        'show-post': Showpost,
+        'show-post': ShowPost,
     },
     data() {
         return {};
