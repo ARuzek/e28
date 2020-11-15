@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <h1>Name of Blog</h1>
+        <h1>My Super Cute Baby-Cats</h1>
 
         <nav>
             <ul>
@@ -51,5 +51,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem; 
+    text-align: center;
+    background-color: pink; 
+    color: #444444; 
+    padding: 1rem; 
+}
 </style>
