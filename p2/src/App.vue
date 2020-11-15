@@ -30,10 +30,9 @@ export default {
     data() {
         return {
             posts: [],
-            links: ['home', 'posts', 'create new post'],
+            links: ['home', 'create new post'],
             paths: {
                 home: '/',
-                posts: '/posts',
                 'create new post': '/posts/new',
             },
         };
