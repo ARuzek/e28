@@ -5,7 +5,7 @@
         <router-link
             v-for="post in posts"
             :key="post.id"
-            v-bind:to="'/posts/' + post.id"
+            v-bind:to="'/post/' + post.id"
             exact
         >
             <show-post :post="post"></show-post>
