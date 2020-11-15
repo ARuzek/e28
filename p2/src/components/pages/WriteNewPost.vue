@@ -1,10 +1,13 @@
 <template>
     <div>
-        <h2>Add a New Blog Post</h2>
+        <h2>Add More Stories About Your Cats</h2>
 
         <div id="inputs">
             <label for="title">Add Title Here</label>
             <input type="text" v-model="post.title" id="title" />
+<!--Add a real drag and drop with POST back to the server if you have time-->
+            <label for="image">Add an image</label>
+            <input type="text" v-model="post.image" id="image"/>
 
             <label for="content">Write Your Blog Post</label>
             <textarea v-model="post.content" id="content"></textarea>
