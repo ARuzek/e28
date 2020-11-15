@@ -1,7 +1,7 @@
 <template>
-    <div class="post">
-        <div class="post-title">{{ post.title }}</div>
+    <div v-bind:class="{ gridview: !includeDetails }">
         <img class="post-image" v-bind:src="imageSource" />
+        <div class="post-title" v-if="includeDetails">{{ post.title }}</div>
         <p class="content" v-if="includeDetails">
             {{ post.content }}
         </p>
@@ -28,3 +28,14 @@ export default {
     },
 };
 </script>
+<style scoped>
+.gridview {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+.gridview img {
+    width: 250px; 
+    padding: 1rem;
+}
+</style>
