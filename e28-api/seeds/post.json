@@ -1,7 +1,18 @@
 {
     "seeds": [
         {
-            "title": "My First Blog Post",
+            "title": "Eucii's Big Run",
+            "image": "Eucii-Big-Run",
+            "content": "hello world!"
+        },
+        {
+            "title": "Snuggle Time",
+            "image": "Snuggle-Time",
+            "content": "hello world!"
+        },
+        {
+            "title": "Jupiter Looks Out the Window",
+            "image": "Jupiter-Looks",
             "content": "hello world!"
         }
     ]
