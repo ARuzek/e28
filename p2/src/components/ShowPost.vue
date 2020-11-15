@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class="{ gridview: !includeDetails }">
+    <div v-bind:class="{ onHomePage: !includeDetails }">
         <img class="post-image" v-bind:src="imageSource" />
         <div class="post-title" v-if="includeDetails">{{ post.title }}</div>
         <p class="content" v-if="includeDetails">
@@ -29,12 +29,8 @@ export default {
 };
 </script>
 <style scoped>
-.gridview {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-}
-.gridview img {
+
+.onHomePage img {
     width: 250px; 
     padding: 1rem;
 }

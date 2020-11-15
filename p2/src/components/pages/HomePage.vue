@@ -2,15 +2,16 @@
   <div>
     <h2>hello and welcome</h2>
     <p>This is a blog about my two super cute baby cats: Euclid (Eucii) and Jupiter (Doopider). I adopted them when they were kittens, but they've grown up so fast. They are almost 2 years old now! Read the blog to find out what they're up to every day. :) </p>
-    <router-link
-        v-for="post in posts"
-        :key="post.id"
-        v-bind:to="'/posts/' + post.id"
-        exact
-    >
-        <show-post :post="post"></show-post>
-    </router-link>
-  
+    <div class="gridview">
+      <router-link
+          v-for="post in posts"
+          :key="post.id"
+          v-bind:to="'/posts/' + post.id"
+          exact
+      >
+          <show-post :post="post"></show-post>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -37,6 +38,10 @@ div {
   max-width: 800px;
   margin: 0 auto;
 }
-
+.gridview {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
 
 </style>
