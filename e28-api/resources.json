@@ -1,5 +1,4 @@
 {
-
     "post": {
         "title": {
             "type": "string",
@@ -17,7 +16,6 @@
             ]
         }
     },
-
     "product": {
         "name": {
             "type": "string",
