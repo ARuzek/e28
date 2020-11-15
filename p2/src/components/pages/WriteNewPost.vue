@@ -29,8 +29,10 @@ export default {
             showConfirmationMessage: false,
             post: {
                 title: 'Add Title Here',
+                image: 'Add image',
                 content:
                     'Write Blog Here',
+                
             },
         };
     },
@@ -44,6 +46,7 @@ export default {
                     this.showConfirmationMessage = true;
                     this.post.title = '';
                     this.post.content = '';
+                    this.post.image = '';
 
                 }
             });
