@@ -1,6 +1,6 @@
 <template>
     <div v-bind:class="{ onHomePage: !includeDetails }">
-        <img class="post-image" v-bind:src="imageSource" />
+        <img v-bind:class="{ postimage: includeDetails }" v-bind:src="imageSource" />
         <div class="post-title" v-if="includeDetails">{{ post.title }}</div>
         <p class="content" v-if="includeDetails">
             {{ post.content }}
@@ -29,8 +29,7 @@ export default {
 };
 </script>
 <style scoped>
-div{}
-.post-image {
+.postimage {
     width: 200px; 
     display: inline; 
     float: left; 
