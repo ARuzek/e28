@@ -29,7 +29,21 @@ export default {
 };
 </script>
 <style scoped>
-
+div{}
+.post-image {
+    width: 200px; 
+    display: inline; 
+    float: left; 
+    margin: 1rem; 
+}
+.post-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2rem; 
+}
+.post-content {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem; 
+}
 .onHomePage img {
     width: 250px; 
     padding: 1rem;
