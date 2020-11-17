@@ -2,7 +2,7 @@
     <div v-bind:class="{ onHomePage: !includeDetails }">
         <img v-bind:class="{ postimage: includeDetails }" v-bind:src="imageSource" />
         <div class="post-title" v-if="includeDetails">{{ post.title }}</div>
-        <p class="content" v-if="includeDetails">
+        <p class="post-content" v-if="includeDetails">
             {{ post.content }}
         </p>
     </div>
