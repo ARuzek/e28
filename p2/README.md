@@ -30,4 +30,4 @@ Comic illustrations of my cats are self-drawn, lol, but at least I had some fun 
 
 ## Notes for instructor
 
-I worked off of the class example. I hope it's not too similar, but blogs and ecommerce have a lot of the same patterns. Any suggestions to differentiate more are welcome. Thanks!
+I worked off of the class example. I hope it's not too similar, but blogs and ecommerce have a lot of the same patterns. I think in the next iteration I will add a comments section, and any other suggestions to differentiate more are welcome. Thanks!
