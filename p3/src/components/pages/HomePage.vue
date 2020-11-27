@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>hello and welcome</h2>
     <p>This is a blog about my two super cute baby cats: Euclid (Eucii) and Jupiter (Doopider). I adopted them when they were kittens, but they've grown up so fast. They are almost 2 years old now! Read the blog to find out what they're up to every day. :) </p>
     <div class="gridview">
       <router-link

@@ -53,7 +53,7 @@ h1 {
     font-family: 'Pacifico', cursive;
     font-size: 4rem; 
     text-align: center;
-    background-color: pink; 
+    background-color: #ffd9d9; 
     color: #444444; 
     padding: 1rem; 
 }
@@ -67,7 +67,7 @@ li {
 a {
     text-decoration: none;
     font-family: 'Pacifico', cursive;
-    background-color: white; 
+    background-color: #ffd9d9; 
     border-radius: .5rem; 
     box-shadow: 2px 2px #444444;
     padding: .5rem;
