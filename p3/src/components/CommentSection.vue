@@ -30,7 +30,7 @@ export default {
             comment: {
                 name: '',
                 content: '', 
-                associatedBlogPost: associatedBlogPost
+                associatedBlogPost: props.associatedBlogPost
             },
             
         };
