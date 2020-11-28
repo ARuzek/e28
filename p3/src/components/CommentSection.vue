@@ -22,7 +22,7 @@
 import { axios } from '@/app.js';
 export default {
     name: 'comment-section',
-    props: [associatedBlogPost],
+    props: ['associatedBlogPost'],
     data() {
         return {
             errors: null,
