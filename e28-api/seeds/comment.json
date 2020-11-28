@@ -2,7 +2,8 @@
     "seeds": [
         {
             "name": "Amelia Ruzek",
-            "content": "This is a comment to a post"
+            "content": "This is a comment to a post", 
+            "associatedBlogPost": "Snuggle Time"
         }
         
     ]

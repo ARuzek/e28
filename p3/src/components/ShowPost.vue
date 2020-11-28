@@ -1,17 +1,20 @@
 <template>
     <div v-bind:class="{ onHomePage: !includeDetails }">
         <img v-bind:class="{ postimage: includeDetails }" v-bind:src="imageSource" />
-        <div class="post-title" v-if="includeDetails">{{ post.title }}</div>
-        <p class="post-content" v-if="includeDetails">
-            {{ post.content }}
-        </p>
-        <comment-section :post="post" v-if="includeDetails">
-
-        </comment-section>
-        <div v-for="comment in comments" v-bind:key="comment.id">
-            {{comment.name}}{{comment.content}}
+        <div v-if="includeDetails">
+            <div class="post-title" >{{ post.title }}</div>
+            <p class="post-content" >
+                {{ post.content }}
+            </p>
+            <comment-section :associatedBlogPost="post.title" >
+            </comment-section>
+            <div v-for="comment in comments" v-bind:key="comment.id" >
+                <div v-if="post.title == comment.associatedBlogPost">
+                <p>{{comment.name}}</p>
+                <p>{{comment.content}}</p>
+                </div>
+            </div>
         </div>
-
     </div>                
 </template>
 

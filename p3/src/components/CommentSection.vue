@@ -8,7 +8,7 @@
             <cite>Required. Must be 3 - 100 characters. </cite>
 
             <label for="content">Write Your Comment Here:</label>
-            <textarea v-model="comment.content" id="content" rows="50" cols="116"></textarea>
+            <textarea v-model="comment.content" id="content" rows="10" cols="116"></textarea>
         </div>
         <button @click="addComment">Add Comment</button>
         <p v-if="!showConfirmationMessage">
@@ -22,6 +22,7 @@
 import { axios } from '@/app.js';
 export default {
     name: 'comment-section',
+    props: [associatedBlogPost],
     data() {
         return {
             errors: null,
@@ -29,6 +30,7 @@ export default {
             comment: {
                 name: '',
                 content: '', 
+                associatedBlogPost: associatedBlogPost
             },
             
         };
@@ -44,7 +46,6 @@ export default {
                     this.showConfirmationMessage = true;
                     this.comment.name = '';
                     this.comment.content = '';
-                   
 
                 }
             });
