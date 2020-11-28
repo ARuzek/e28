@@ -1,4 +1,21 @@
 {
+    "comment": {
+        "name": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:3",
+                "max:100"
+            ]
+        },
+        "content": {
+            "type": "text",
+            "validators": [
+                "required",
+                "min:3"
+            ]
+        }
+    },
     "post": {
         "title": {
             "type": "string",

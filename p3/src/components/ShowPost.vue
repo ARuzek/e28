@@ -5,15 +5,39 @@
         <p class="post-content" v-if="includeDetails">
             {{ post.content }}
         </p>
-    </div>
+        <comment-section :post="post" v-if="includeDetails">
+
+        </comment-section>
+        <div v-for="comment in comments" v-bind:key="comment.id">
+            {{comment.name}}{{comment.content}}
+        </div>
+
+    </div>                
 </template>
 
 <script>
+import CommentSection from '@/components/CommentSection.vue';
+
 export default {
     name: 'show-post',
     props: ['post', 'includeDetails'],
+    components: {
+        'comment-section': CommentSection,
+    },
     data() {
-        return {};
+        return {
+            comments: []
+        };
+    },
+    methods: {
+        updateComments() {
+            axios.get('comment').then((response) => {
+                this.comments = response.data.comment;
+            });
+        },
+    },
+    mounted() {
+        this.updateComments();
     },
     computed: {
         imageSource() {
