@@ -50,7 +50,7 @@
             </ul>
 
             <h2> Or Register </h2>
-<label
+                <label
                     >Set an Email:
                     <input
                         type="text"
@@ -68,8 +68,8 @@
                 /></label>
             </div>
             <button @click="register" data-test="register-button">Register</button>
-
-        </div>
+    
+        
     </div>
 </template>
 
