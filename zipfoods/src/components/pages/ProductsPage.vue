@@ -20,9 +20,14 @@ export default {
     components: {
         'show-product': ShowProduct,
     },
-    props: ['products'],
+    props: [],
     data: function () {
         return {};
+    },
+    computed: {
+        products() {
+            return this.$store.state.products;
+        },
     },
 };
 </script>
