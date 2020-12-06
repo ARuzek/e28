@@ -50,12 +50,19 @@
             </ul>
 
             <h2> Or Register </h2>
+            <label
+                    >Name Please:
+                    <input
+                        type="text"
+                        data-test="register-name-input"
+                        v-model="registration.name"
+                /></label>
                 <label
                     >Set an Email:
                     <input
                         type="text"
                         data-test="register-email-input"
-                        v-model="data.email"
+                        v-model="registration.email"
                 /></label>
             </div>
             <div>
@@ -64,7 +71,7 @@
                     <input
                         type="password"
                         data-test="register-password-input"
-                        v-model="data.password"
+                        v-model="registration.password"
                 /></label>
             </div>
             <button @click="register" data-test="register-button">Register</button>
@@ -83,6 +90,11 @@ export default {
             data: {
                 email: 'jill@harvard.edu',
                 password: 'asdfasdf',
+            },
+            registration: {
+                name: '',
+                email: '',
+                password: '',
             },
             errors: null,
             favorites: [],
@@ -121,7 +133,7 @@ export default {
             });
         },
         register() {
-            axios.post('register', this.data).then((response) => {
+            axios.post('register', this.registration).then((response) => {
                if (response.data.errors) {
                     this.errors = response.data.errors;
                 }  else {
