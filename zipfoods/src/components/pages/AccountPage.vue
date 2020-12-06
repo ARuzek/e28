@@ -48,6 +48,27 @@
                     {{ error }}
                 </li>
             </ul>
+
+            <h2> Or Register </h2>
+<label
+                    >Set an Email:
+                    <input
+                        type="text"
+                        data-test="register-email-input"
+                        v-model="data.email"
+                /></label>
+            </div>
+            <div>
+                <label
+                    >Set Your Password:
+                    <input
+                        type="password"
+                        data-test="register-password-input"
+                        v-model="data.password"
+                /></label>
+            </div>
+            <button @click="register" data-test="register-button">Register</button>
+
         </div>
     </div>
 </template>
@@ -97,6 +118,16 @@ export default {
                 } else {
                     this.errors = response.data.errors;
                 }
+            });
+        },
+        register() {
+            axios.post('register', this.data).then((response) => {
+               if (response.data.errors) {
+                    this.errors = response.data.errors;
+                }  else {
+                    this.$store.dispatch('authUser');
+                } 
+              
             });
         },
         logout() {
