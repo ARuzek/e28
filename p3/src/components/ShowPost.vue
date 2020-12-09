@@ -9,8 +9,8 @@
       <p class="post-content">
         {{ post.content }}
       </p>
-      <div>
-        <comment-section v-if="user" :associatedBlogPost="post.title">
+      <div v-if="user">
+        <comment-section  :associatedBlogPost="post.title">
         </comment-section>
         <div
           class="commentsection"
@@ -23,6 +23,7 @@
           </div>
         </div>
       </div>
+      <button v-else>Login to View Comments</button>
     </div>
   </div>
 </template>
