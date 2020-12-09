@@ -20,7 +20,7 @@
 
 <script>
 import CommentSection from '@/components/CommentSection.vue';
-import { axios } from '@/app.js';
+import { axios } from '@/common/app.js';
 export default {
     name: 'show-post',
     props: ['post', 'includeDetails'],

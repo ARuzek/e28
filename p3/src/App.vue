@@ -2,9 +2,18 @@
     <div id="app">
         <nav>
             <ul>
-                <li>
+                <li v-if="user">
                     <router-link
-                        v-for="link in links"
+                        v-for="link in userlinks"
+                        v-bind:key="link"
+                        v-bind:to="paths[link]"
+                        exact
+                        >{{ link }}</router-link
+                    >
+                </li>
+                <li v-else>
+                    <router-link
+                        v-for="link in strangerlinks"
                         v-bind:key="link"
                         v-bind:to="paths[link]"
                         exact
@@ -22,16 +31,18 @@
 </template>
 
 <script>
-import { axios } from '@/app.js';
+import { axios } from '@/common/app.js';
 export default {
     name: 'App',
     data() {
         return {
             posts: [],
-            links: ['home', 'create new post'],
+            userlinks: ['home', 'create new post'],
+            strangerlinks: ['home', 'login / register'],
             paths: {
                 home: '/',
                 'create new post': '/posts/new',
+                'login / register': '/posts/new'
             },
         };
     },
@@ -40,6 +51,12 @@ export default {
             axios.get('post').then((response) => {
                 this.posts = response.data.post;
             });
+        },
+    },
+     computed: {
+        // Get our user state from the Vuex store
+        user() {
+            return this.$store.state.user;
         },
     },
     mounted() {

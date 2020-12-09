@@ -110,19 +110,7 @@ export default {
         },
     },
     methods: {
-        loadFavorites() {
-            if (this.user) {
-                // Because favorite is a auth-protected resource, this will
-                // only return favorites belonging to the authenticated user
-                axios.get('favorite').then((response) => {
-                    this.favorites = response.data.favorite.map((favorite) => {
-                        return this.$store.getters.getProductById(
-                            favorite.product_id
-                        );
-                    });
-                });
-            }
-        },
+       
         login() {
             axios.post('login', this.data).then((response) => {
                 if (response.data.authenticated) {
@@ -150,13 +138,6 @@ export default {
             });
         },
     },
-    watch: {
-        user() {
-            this.loadFavorites();
-        },
-    },
-    mounted() {
-        this.loadFavorites();
-    },
+    
 };
 </script>

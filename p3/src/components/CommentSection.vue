@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { axios } from '@/app.js';
+import { axios } from '@/common/app.js';
 export default {
     name: 'comment-section',
     props: ['associatedBlogPost'],
