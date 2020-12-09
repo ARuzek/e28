@@ -21,7 +21,7 @@
         </p>
         <p v-if="showConfirmationMessage">Congrats! Your post is now published!</p>
         </div>
-        <div v-else>
+        <div v-else class="account">
         <div>
             <h2>Login</h2>
             <div>
@@ -77,7 +77,7 @@
                 /></label>
             </div>
             <button @click="register" data-test="register-button">Register</button>
-    
+            <p v-if="successfulRegistry">You've successfully registered. Now log in and start drawing comics of your cats!!<p>
         </div>
   </div>
     
@@ -97,6 +97,7 @@ export default {
                 email: '',
                 password: '',
             },
+            successfulRegistry: false,
             errors: null,
             showConfirmationMessage: false,
             post: {
@@ -132,6 +133,7 @@ export default {
                     this.errors = response.data.errors;
                 }  else {
                     this.$store.dispatch('authUser');
+                    this.successfulRegistry = true; 
                 } 
               
             });
@@ -143,6 +145,24 @@ export default {
                 }
             });
         },
+         addPost() {
+            axios.post('/post', this.post).then((response) => {
+                if (response.data.errors) {
+                    this.errors = response.data.errors;
+                } else {
+                    this.$emit('update-posts');
+                    this.showConfirmationMessage = true;
+                    this.post.title = '';
+                    this.post.content = '';
+                    this.post.image = '';
+
+                }
+            });
+            
+        },
+
+        //STOP - Don't grade after this point. 
+        //Citation: The following is based on code that is not my own, but I thoguht it was a cool feature. 
         startDrawingComic(event){
             console.log("Start drawing");                
             this.paint = true;
@@ -184,27 +204,17 @@ export default {
             this.clickY.push(y);
             this.clickDrag.push(dragging);
         },
-        addPost() {
-            axios.post('/post', this.post).then((response) => {
-                if (response.data.errors) {
-                    this.errors = response.data.errors;
-                } else {
-                    this.$emit('update-posts');
-                    this.showConfirmationMessage = true;
-                    this.post.title = '';
-                    this.post.content = '';
-                    this.post.image = '';
-
-                }
-            });
-            
-        },
+       
     },
     
 };
 </script>
 
 <style scoped>
+ .account {
+     display: flex; 
+     flex-direction: row;
+ }
    h2, p, label, button{
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
