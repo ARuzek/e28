@@ -28,19 +28,14 @@ export default {
             errors: null,
             showConfirmationMessage: false,
             comment: {
-                name: this.user.name,
+                name: this.$store.state.user.name,
                 content: '', 
                 associatedBlogPost: this.associatedBlogPost
             },
             
         };
     },
-    computed: {
-    // Get our user state from the Vuex store
-    user() {
-      return this.$store.state.user;
-    },
-  },
+    
     methods: {
        
         addComment() {
@@ -50,7 +45,6 @@ export default {
                 } else {
                     this.$emit('update-comments');
                     this.showConfirmationMessage = true;
-                    this.comment.name = this.user.name;
                     this.comment.content = '';
 
                 }
