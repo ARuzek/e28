@@ -22,7 +22,6 @@
         <p v-if="showConfirmationMessage">Congrats! Your post is now published!</p>
         </div>
         <div v-else class="account">
-        <div>
             <h2>Login</h2>
             <div>
                 <label
@@ -66,8 +65,6 @@
                         data-test="register-email-input"
                         v-model="registration.email"
                 /></label>
-            </div>
-            <div>
                 <label
                     >Set Your Password:
                     <input
@@ -75,7 +72,6 @@
                         data-test="register-password-input"
                         v-model="registration.password"
                 /></label>
-            </div>
             <button @click="register" data-test="register-button">Register</button>
             <p v-if="successfulRegistry">You've successfully registered. Now log in and start drawing comics of your cats!!<p>
         </div>
