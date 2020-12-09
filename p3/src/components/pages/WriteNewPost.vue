@@ -7,7 +7,6 @@
             <label for="title">Add Your Blog Post Title Here:
             <input type="text" v-model="post.title" id="title" /></label>
             <cite>Required. Must be 3 - 100 characters. </cite>
-<!--Add a real drag and drop with POST back to the server if you have time-->
             <label for="image">Add An Image Name:
             <input type="text" v-model="post.image" id="image"/></label>
  
@@ -23,6 +22,7 @@
         <p v-if="showConfirmationMessage">Congrats! Your post is now published!</p>
         </div>
         <div v-else>
+        <div>
             <h2>Login</h2>
             <div>
                 <label
@@ -79,7 +79,8 @@
             <button @click="register" data-test="register-button">Register</button>
     
         </div>
-    </div>
+  </div>
+    
 </template>
 
 <script>
