@@ -61,13 +61,16 @@ export default {
       return this.$store.state.user;
     },
     imageSource() {
-       
-        try {
-          //return require("@/assets/" + this.post.image + ".png");
+       if (this.post.drawing.length != 0){
           return JSON.parse(this.post.drawing);
+       }
+       else {
+        try {
+          return require("@/assets/" + this.post.image + ".png");
         } catch (e) {
           return require("@/assets/image-not-found.png");
         }
+       }
       }
     
   },
