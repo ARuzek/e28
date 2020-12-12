@@ -223,8 +223,6 @@ export default {
       context.strokeStyle = "#000000";
       context.lineJoin = "round";
       context.lineWidth = 5;
-      context.rect(0, 0, 200, 150);
-
       for (var i = 0; i < this.clickX.length; i++) {
         context.beginPath();
         if (this.clickDrag[i] && i) {
