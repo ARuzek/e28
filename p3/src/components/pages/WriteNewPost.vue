@@ -33,12 +33,13 @@
         ></textarea>
       </div>
       <button @click="addPost">Create New Blog Post</button>
-      <p v-if="!showConfirmationMessage">
-        {{ errors }}
-      </p>
       <p v-if="showConfirmationMessage">
         Congrats! Your post is now published!
       </p>
+      <p v-else>
+        {{ errors }}
+      </p>
+      
     </div>
     <div v-else class="account">
       <div>
@@ -61,8 +62,8 @@
 
         <button @click="login" data-test="login-button">Login</button>
 
-        <ul v-if="errors">
-          <li class="error" v-for="(error, index) in errors" :key="index">
+        <ul v-if="loginErrors">
+          <li class="error" v-for="(error, index) in loginErrors" :key="index">
             {{ error }}
           </li>
         </ul>
@@ -95,6 +96,11 @@
           You've successfully registered. Now log in and start drawing comics of
           your cats!!
         </p>
+        <ul v-if="registryErrors">
+          <li class="error" v-for="(error, index) in registryErrors" :key="index">
+            {{ error }}
+          </li>
+        </ul>
         <p></p>
       </div>
     </div>
@@ -116,7 +122,9 @@ export default {
         password: "",
       },
       successfulRegistry: false,
-      errors: null,
+      registryErrors: null,
+      loginErrors: null,
+      errors: null, 
       showConfirmationMessage: false,
       post: {
         title: "",
@@ -142,14 +150,14 @@ export default {
         if (response.data.authenticated) {
           this.$store.commit("setUser", response.data.user);
         } else {
-          this.errors = response.data.errors;
+          this.loginErrors = response.data.errors;
         }
       });
     },
     register() {
       axios.post("register", this.registration).then((response) => {
         if (response.data.errors) {
-          this.errors = response.data.errors;
+          this.registryErrors = response.data.errors;
         } else {
           this.$store.dispatch("authUser");
           this.successfulRegistry = true;
