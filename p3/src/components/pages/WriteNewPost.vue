@@ -16,7 +16,7 @@
         <p>Draw A Comic of Your Cat: </p>
         <canvas
           width="200px"
-          height="400px"
+          height="150px"
           id="canvas"
           style="border:1px solid"
           @mousedown="startDrawingComic($event)"
@@ -219,10 +219,11 @@ export default {
     },
     redraw(context) {
       context = context.getContext("2d");
-      context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+      context.clearRect(0, 0, context.canvas.width, context.canvas.height); 
       context.strokeStyle = "#000000";
       context.lineJoin = "round";
       context.lineWidth = 5;
+      context.rect(0, 0, 200, 150);
 
       for (var i = 0; i < this.clickX.length; i++) {
         context.beginPath();
@@ -263,7 +264,7 @@ h2 {
 }
 canvas {
   width: 200px;
-  height: 400px;
+  height: 150px;
 }
 div {
   max-width: 900px;
