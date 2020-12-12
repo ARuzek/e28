@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <button v-else>Login to View Comments</button>
+      <router-link to="/posts/new" v-else>Login to View Comments</router-link>        
     </div>
   </div>
 </template>
@@ -68,6 +68,20 @@ export default {
 };
 </script>
 <style scoped>
+a {
+    text-decoration: none;
+    font-family: 'Pacifico', cursive;
+    background-color: #ffd9d9; 
+    border-radius: .5rem; 
+    box-shadow: 2px 2px #444444;
+    padding: .5rem;
+    transition: background-color .5s;
+}
+
+a:hover {
+background-color: #f5e6e6
+
+}
 .commentsection {
   max-width: 900px;
   margin: 0 auto;
