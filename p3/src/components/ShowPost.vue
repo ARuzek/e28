@@ -57,6 +57,7 @@ export default {
   },
   drawImage(event) {
     const context = event.target.getContext("2d");
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     const image = new Image(); 
     context.drawImage(image, 0, 0);
     image.src = this.post.drawing; 
