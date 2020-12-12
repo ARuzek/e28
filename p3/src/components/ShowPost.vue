@@ -61,7 +61,7 @@ export default {
       return this.$store.state.user;
     },
     imageSource() {
-       if (this.post.drawing.value != ''){
+       if (this.post.image.value == ''){
           return JSON.parse(this.post.drawing);
        }
        else {
