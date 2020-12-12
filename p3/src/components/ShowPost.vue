@@ -5,7 +5,7 @@
         v-bind:class="{ postimage: includeDetails }"
         v-bind:src="imageSource"
       />
-      <canvas v-if="post.image == ''" @load="drawImage($event)" width="200px" height="400px"> </canvas>
+      <canvas @load="drawImage($event)" width="200px" height="400px"> </canvas>
       <div v-if="includeDetails">
         <div class="post-title">{{ post.title }}</div>
         <p class="post-content">
