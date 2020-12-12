@@ -42,7 +42,10 @@
             ]
         },
         "drawing": {
-            "type": "string"
+            "type": "string",
+            "validators": [
+               
+            ]
         },
         "content": {
             "type": "text",
