@@ -73,7 +73,7 @@ export default {
           return require("@/assets/image-not-found.png");
         }
       }
-    },
+    
   },
 };
 </script>
