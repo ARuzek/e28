@@ -63,7 +63,7 @@
           /></label>
         </div>
 
-        <button @click="login" data-test="login-button">Login</button>
+        <button @click="login" v-touch:tap="login" data-test="login-button">Login</button>
 
         <ul v-if="loginErrors">
           <li class="error" v-for="(error, index) in loginErrors" :key="index">
