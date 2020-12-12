@@ -3,7 +3,7 @@
     <div v-bind:class="{ onHomePage: !includeDetails }">
       <img
         v-bind:class="{ postimage: includeDetails }"
-        v-bind:src="imageSource"
+        v-bind:src="{imageSource}"
       />
       <div v-if="includeDetails">
         <div class="post-title">{{ post.title }}</div>
