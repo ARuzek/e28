@@ -1,33 +1,32 @@
 <template>
- <div>
-  <div v-bind:class="{ onHomePage: !includeDetails }">
-    <img
-      v-bind:class="{ postimage: includeDetails }"
-      v-bind:src="imageSource"
-    />
-    <div v-if="includeDetails">
-      <div class="post-title">{{ post.title }}</div>
-      <p class="post-content">
-        {{ post.content }}
-      </p>
-    </div>
-  </div>
-  <div v-if="includeDetails">
-  <div v-if="user" >
-    <comment-section :associatedBlogPost="post.title"> </comment-section>
-    <div
-      class="commentsection"
-      v-for="comment in comments"
-      v-bind:key="comment.id"
-    >
-      <div v-if="post.title == comment.associatedBlogPost">
-        <p>{{ comment.content }}</p>
-        <cite>Author: {{ comment.name }}</cite>
+  <div>
+    <div v-bind:class="{ onHomePage: !includeDetails }">
+      <img
+        v-bind:class="{ postimage: includeDetails }"
+        v-bind:src="imageSource"
+      />
+      <div v-if="includeDetails">
+        <div class="post-title">{{ post.title }}</div>
+        <p class="post-content">
+          {{ post.content }}
+        </p>
       </div>
     </div>
-  </div>
-  <router-link to="/posts/new" v-else>Login to View Comments</router-link>
-  </div>
+    <div class="commentsection" v-if="includeDetails">
+      <div v-if="user">
+        <comment-section :associatedBlogPost="post.title"> </comment-section>
+        <div
+          v-for="comment in comments"
+          v-bind:key="comment.id"
+        >
+          <div v-if="post.title == comment.associatedBlogPost">
+            <p>{{ comment.content }}</p>
+            <cite>Author: {{ comment.name }}</cite>
+          </div>
+        </div>
+      </div>
+      <router-link to="/posts/new" v-else>Login to View Comments</router-link>
+    </div>
   </div>
 </template>
 
@@ -90,7 +89,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   background-color: #ffd9d9;
-  border: 2px solid palevioletred; 
+  border-radius: 1rem;
+  padding: 1rem;
 }
 .postimage {
   width: 200px;
