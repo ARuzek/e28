@@ -5,7 +5,6 @@
         v-bind:class="{ postimage: includeDetails }"
         v-bind:src="imageSource"
       />
-      <canvas @load="drawImage($event)" width="200px" height="400px"> </canvas>
       <div v-if="includeDetails">
         <div class="post-title">{{ post.title }}</div>
         <p class="post-content">
@@ -55,21 +54,17 @@ export default {
   mounted() {
     this.updateComments();
   },
-  drawImage(event) {
-    const context = event.target.getContext("2d");
-    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-    const image = new Image(); 
-    context.drawImage(image, 0, 0);
-    image.src = this.post.drawing; 
-  },
+  
   computed: {
     // Get our user state from the Vuex store
     user() {
       return this.$store.state.user;
     },
     imageSource() {
+       
         try {
-          return require("@/assets/" + this.post.image + ".png");
+          //return require("@/assets/" + this.post.image + ".png");
+          return this.post.drawing;
         } catch (e) {
           return require("@/assets/image-not-found.png");
         }
