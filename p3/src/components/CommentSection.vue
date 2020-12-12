@@ -71,7 +71,7 @@ export default {
     }
     input, button, textarea {
     border-radius: 1rem;
-    border: 1px solid pink;
+    border: 1px solid #ffd9d9;
     }
     label {
         margin: 1rem;
@@ -79,7 +79,7 @@ export default {
     }
     button {
         padding: 1rem; 
-        background-color: pink;
+        background-color: #ffd9d9;
         font-size: 1.2rem;
         margin: 1rem;
     }
