@@ -1,4 +1,5 @@
 <template>
+ <div>
   <div v-bind:class="{ onHomePage: !includeDetails }">
     <img
       v-bind:class="{ postimage: includeDetails }"
@@ -9,22 +10,22 @@
       <p class="post-content">
         {{ post.content }}
       </p>
-      <div v-if="user">
-        <comment-section  :associatedBlogPost="post.title">
-        </comment-section>
-        <div
-          class="commentsection"
-          v-for="comment in comments"
-          v-bind:key="comment.id"
-        >
-          <div v-if="post.title == comment.associatedBlogPost">
-            <p>{{ comment.name }}</p>
-            <p>{{ comment.content }}</p>
-          </div>
-        </div>
-      </div>
-      <router-link to="/posts/new" v-else>Login to View Comments</router-link>        
     </div>
+  </div>
+  <div v-if="user">
+    <comment-section :associatedBlogPost="post.title"> </comment-section>
+    <div
+      class="commentsection"
+      v-for="comment in comments"
+      v-bind:key="comment.id"
+    >
+      <div v-if="post.title == comment.associatedBlogPost">
+        <p>{{ comment.content }}</p>
+        <cite>Author: {{ comment.name }}</cite>
+      </div>
+    </div>
+  </div>
+  <router-link to="/posts/new" v-else>Login to View Comments</router-link>
   </div>
 </template>
 
@@ -69,24 +70,25 @@ export default {
 </script>
 <style scoped>
 a {
-    text-decoration: none;
-    font-family: 'Pacifico', cursive;
-    background-color: #ffd9d9; 
-    border-radius: .5rem; 
-    box-shadow: 2px 2px #444444;
-    padding: .5rem;
-    transition: background-color .5s;
+  text-decoration: none;
+  font-family: "Pacifico", cursive;
+  background-color: #ffd9d9;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px #444444;
+  padding: 0.5rem;
+  transition: background-color 0.5s;
 }
 
 a:hover {
-background-color: #f5e6e6
-
+  background-color: #f5e6e6;
 }
 .commentsection {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  background-color: #ffd9d9;
+  border: 2px solid palevioletred; 
 }
 .postimage {
   width: 200px;
