@@ -113,10 +113,6 @@ a:hover {
   
 }
 
-img {
-border: 3px solid #000000;
-  border-radius: 1rem;
-}
 .post-title {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -129,6 +125,7 @@ border: 3px solid #000000;
 }
 .onHomePage img {
   width: 250px;
-  padding: 1rem;
+  border: 3px solid #000000;
+  border-radius: 1rem;
 }
 </style>
