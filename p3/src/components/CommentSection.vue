@@ -3,10 +3,7 @@
         <h2>Write a Comment</h2>
 
         <div id="inputs">
-            <label for="name">Your Name
-            <input type="text" v-model="comment.name" id="name" /></label>
-            <cite>Required. Must be 3 - 100 characters. </cite>
-
+            <cite>Author: {{comment.name}}</cite>
             <label for="content">Write Your Comment Here:</label>
             <textarea v-model="comment.content" id="content" rows="10" cols="116"></textarea>
         </div>
