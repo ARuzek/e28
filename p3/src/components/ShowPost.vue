@@ -64,6 +64,7 @@ export default {
        
         try {
           if(this.post.drawing != '') {
+            console.log(this.post.drawing);
             return JSON.parse(this.post.drawing);
             }else{
           return require("@/assets/" + this.post.image + ".png");
