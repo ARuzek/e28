@@ -12,7 +12,8 @@
       </p>
     </div>
   </div>
-  <div v-if="user">
+  <div v-if="includeDetails">
+  <div v-if="user" >
     <comment-section :associatedBlogPost="post.title"> </comment-section>
     <div
       class="commentsection"
@@ -26,6 +27,7 @@
     </div>
   </div>
   <router-link to="/posts/new" v-else>Login to View Comments</router-link>
+  </div>
   </div>
 </template>
 
