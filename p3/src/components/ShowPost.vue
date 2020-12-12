@@ -61,7 +61,7 @@ export default {
       return this.$store.state.user;
     },
     imageSource() {
-       if (this.post.drawing.length != 0){
+       if (this.post.drawing.length() != 0){
           return JSON.parse(this.post.drawing);
        }
        else {
