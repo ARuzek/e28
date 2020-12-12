@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <div v-bind:class="{ onHomePage: !includeDetails }">
       <img
         v-bind:class="{ postimage: includeDetails }"
@@ -12,14 +12,14 @@
         </p>
       </div>
     </div>
-    <div class="commentsection" v-if="includeDetails">
+    <div  v-if="includeDetails">
       <div v-if="user">
         <comment-section :associatedBlogPost="post.title"> </comment-section>
         <div
           v-for="comment in comments"
           v-bind:key="comment.id"
         >
-          <div v-if="post.title == comment.associatedBlogPost">
+          <div class="commentsection" v-if="post.title == comment.associatedBlogPost">
             <p>{{ comment.content }}</p>
             <cite>Author: {{ comment.name }}</cite>
           </div>
@@ -83,14 +83,17 @@ a {
 a:hover {
   background-color: #f5e6e6;
 }
-.commentsection {
-  max-width: 900px;
+.page {
+ max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+.commentsection {
   background-color: #ffd9d9;
   border-radius: 1rem;
   padding: 1rem;
+  padding-left: 2rem ;
 }
 .postimage {
   width: 200px;
