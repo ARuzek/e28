@@ -172,7 +172,9 @@ export default {
       });
     },
     addPost() {
-      this.post.drawing = "does this work";
+      
+      let canvasData = document.getElementById("canvas").toDataURL(); 
+      this.post.drawing = JSON.stringify(canvasData);
 
       axios.post("/post", this.post).then((response) => {
         if (response.data.errors) {
