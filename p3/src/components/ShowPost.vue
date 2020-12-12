@@ -60,10 +60,14 @@ export default {
       return this.$store.state.user;
     },
     imageSource() {
-      try {
-        return require("@/assets/" + this.post.image + ".png");
-      } catch (e) {
-        return require("@/assets/image-not-found.png");
+      if(this.post.image == ''){
+          return require(this.post.drawing);
+      }else {
+        try {
+          return require("@/assets/" + this.post.image + ".png");
+        } catch (e) {
+          return require("@/assets/image-not-found.png");
+        }
       }
     },
   },

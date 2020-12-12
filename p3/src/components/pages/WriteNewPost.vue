@@ -172,7 +172,8 @@ export default {
       });
     },
     addPost() {
-      
+
+      //citation: https://stackoverflow.com/questions/44806870/saving-canvas-to-json-and-loading-json-to-canvas
       let canvasData = document.getElementById("canvas").toDataURL(); 
       this.post.drawing = JSON.stringify(canvasData);
 
@@ -185,6 +186,7 @@ export default {
           this.post.title = "";
           this.post.content = "";
           this.post.image = "";
+          this.post.drawing = "";
         }
       });
     },
