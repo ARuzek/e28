@@ -5,6 +5,7 @@
         v-bind:class="{ postimage: includeDetails }"
         v-bind:src="imageSource"
       />
+      <canvas v-if="post.image == ''" @load="drawImage($event)" width="200px" height="400px"> </canvas>
       <div v-if="includeDetails">
         <div class="post-title">{{ post.title }}</div>
         <p class="post-content">
@@ -12,14 +13,14 @@
         </p>
       </div>
     </div>
-    <div  v-if="includeDetails">
+    <div v-if="includeDetails">
       <div v-if="user">
         <comment-section :associatedBlogPost="post.title"> </comment-section>
-        <div
-          v-for="comment in comments"
-          v-bind:key="comment.id"
-        >
-          <div class="commentsection" v-if="post.title == comment.associatedBlogPost">
+        <div v-for="comment in comments" v-bind:key="comment.id">
+          <div
+            class="commentsection"
+            v-if="post.title == comment.associatedBlogPost"
+          >
             <p>{{ comment.content }}</p>
             <cite>Author: {{ comment.name }}</cite>
           </div>
@@ -54,15 +55,18 @@ export default {
   mounted() {
     this.updateComments();
   },
+  drawImage(event) {
+    const context = event.target.getContext("2d");
+    const image = new Image(); 
+    context.drawImage(image, 0, 0);
+    image.src = this.post.drawing; 
+  },
   computed: {
     // Get our user state from the Vuex store
     user() {
       return this.$store.state.user;
     },
     imageSource() {
-      if(this.post.image == "show drawing"){
-          return require(this.post.drawing);
-      }else {
         try {
           return require("@/assets/" + this.post.image + ".png");
         } catch (e) {
@@ -88,7 +92,7 @@ a:hover {
   background-color: #f5e6e6;
 }
 .page {
- max-width: 900px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -97,9 +101,9 @@ a:hover {
   background-color: #ffd9d98a;
   border-radius: 1rem;
   padding: 1rem;
-  padding-left: 2rem ;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+  padding-left: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .postimage {
   width: 200px;
