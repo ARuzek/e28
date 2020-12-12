@@ -122,6 +122,7 @@ export default {
         title: "",
         image: "",
         content: "",
+        drawing: ""
       },
       paint: false,
       clickX: [],
@@ -163,8 +164,8 @@ export default {
       });
     },
     addPost() {
-      this.post.image = document.getElementById("canvas").toDataUrl('image/png');
-      
+      this.post.drawing = document.getElementById("canvas").toDataUrl('image/png');
+
       axios.post("/post", this.post).then((response) => {
         if (response.data.errors) {
           this.errors = response.data.errors;
