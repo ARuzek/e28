@@ -60,7 +60,7 @@ export default {
       return this.$store.state.user;
     },
     imageSource() {
-      if(this.post.drawing){
+      if(this.post.image == "show drawing"){
           return require(this.post.drawing);
       }else {
         try {
