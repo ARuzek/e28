@@ -110,7 +110,11 @@ a:hover {
   display: inline;
   float: left;
   margin: 1rem;
-  border: 3px solid #000000;
+  
+}
+
+img {
+border: 3px solid #000000;
   border-radius: 1rem;
 }
 .post-title {
