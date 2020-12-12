@@ -28,7 +28,7 @@
         <textarea
           v-model="post.content"
           id="content"
-          rows="50"
+          rows="10"
           cols="116"
         ></textarea>
       </div>
