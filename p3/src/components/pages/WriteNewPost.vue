@@ -22,9 +22,6 @@
           @mousedown="startDrawingComic($event)"
           @mousemove="drawHere($event)"
           @mouseup="stopDrawingComic"
-          v-touch:start="startDrawingComic($event)"
-          v-touch:moving="drawHere($event)"
-          v-touch:end="stopDrawingComic"
         ></canvas>
 
         <label for="content">Write Your Blog Post Here:</label>
@@ -112,9 +109,7 @@
 
 <script>
 import { axios } from "@/common/app.js";
-import Vue2TouchEvents from 'vue2-touch-events';
-import Vue from "vue";
-Vue.use(Vue2TouchEvents);
+
 
 export default {
   data() {
