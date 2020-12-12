@@ -41,6 +41,9 @@
                 "max:100"
             ]
         },
+        "drawing": {
+            "type": "string"
+        },
         "content": {
             "type": "text",
             "validators": [
