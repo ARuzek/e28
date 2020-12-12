@@ -61,17 +61,18 @@ export default {
       return this.$store.state.user;
     },
     imageSource() {
-       if (this.post.image.value == ''){
-          return JSON.parse(this.post.drawing);
-       }
-       else {
+       
         try {
+          if(this.post.drawing != '') {
+            return JSON.parse(this.post.drawing);
+            }else{
           return require("@/assets/" + this.post.image + ".png");
+            }
         } catch (e) {
           return require("@/assets/image-not-found.png");
         }
        }
-      }
+      
     
   },
 };
