@@ -13,6 +13,7 @@
           >Add An Image Name: <input type="text" v-model="post.image" id="image"
         /></label>
 
+        <p>Draw A Comic of Your Cat: </p>
         <canvas
           width="200px"
           height="400px"
@@ -162,6 +163,8 @@ export default {
       });
     },
     addPost() {
+      this.post.image = document.getElementById("canvas").toDataUrl('image/png');
+      
       axios.post("/post", this.post).then((response) => {
         if (response.data.errors) {
           this.errors = response.data.errors;
@@ -204,7 +207,7 @@ export default {
     redraw(context) {
       context = context.getContext("2d");
       context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-      context.strokeStyle = "#df4b26";
+      context.strokeStyle = "#000000";
       context.lineJoin = "round";
       context.lineWidth = 5;
 
@@ -259,7 +262,7 @@ input,
 button,
 textarea {
   border-radius: 1rem;
-  border: 1px solid pink;
+  border: 1px solid #ffd9d9;
 }
 label {
   margin: 1rem;
@@ -267,7 +270,7 @@ label {
 }
 button {
   padding: 1rem;
-  background-color: pink;
+  background-color: #ffd9d9;
   font-size: 1.2rem;
   margin: 1rem;
 }
