@@ -63,8 +63,7 @@ export default {
     imageSource() {
        
         try {
-          if(this.post.drawing != '') {
-            console.log(this.post.drawing);
+          if(this.post.drawing != null) {
             return JSON.parse(this.post.drawing);
             }else{
           return require("@/assets/" + this.post.image + ".png");
