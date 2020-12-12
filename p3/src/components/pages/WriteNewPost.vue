@@ -172,7 +172,7 @@ export default {
       });
     },
     addPost() {
-      this.post.drawing = document.getElementById("canvas").toDataUrl('image/png');
+      this.post.drawing = "does this work";
 
       axios.post("/post", this.post).then((response) => {
         if (response.data.errors) {
