@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <router-link to="/posts/new" v-else>Login to View Comments</router-link>
+      <router-link to="/login" v-else>Login to View Comments</router-link>
     </div>
   </div>
 </template>
