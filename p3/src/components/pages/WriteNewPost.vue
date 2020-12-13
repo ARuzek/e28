@@ -4,7 +4,7 @@
         Congrats! Your post is now published! Visit the home screen to see your published post. 
     </p>
     <div v-else>
-    <div v-if="user">
+    <div>
       <h2>Add More Stories About Your Cats</h2>
 
       <div id="inputs">
@@ -56,90 +56,9 @@
       </div>
       <button @click="addPost">Create New Blog Post</button>
       
-      <ul v-if="errors">
-          <li
-            class="error"
-            v-for="(error, index) in errors"
-            :key="index"
-          >
-            {{ error}}
-          </li>
-        </ul>
     </div>
-    <div v-else class="account">
-      <div>
-        <h2>Login</h2>
-        <div>
-          <label
-            >Email:
-            <input required type="text" data-test="email-input" v-model="data.email"
-          /></label>
-        </div>
-        <div>
-          <label
-            >Password:
-            <input
-              required
-              type="password"
-              data-test="password-input"
-              v-model="data.password"
-          /></label>
-        </div>
-
-        <button @click="login" v-touch:tap="login" data-test="login-button">
-          Login
-        </button>
-
-        <ul v-if="loginErrors">
-          <li class="error" v-for="(error, index) in loginErrors" :key="index">
-            {{ error }}
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h2>Or Register</h2>
-        <label
-          >Name Please:
-          <input
-            required
-            type="text"
-            data-test="register-name-input"
-            v-model="registration.name"
-        /></label>
-        <label
-          >Set an Email:
-          <input
-            required
-            type="text"
-            data-test="register-email-input"
-            v-model="registration.email"
-        /></label>
-        <label
-          >Set Your Password:
-          <input
-            required
-            type="password"
-            data-test="register-password-input"
-            v-model="registration.password"
-        /></label>
-        <button @click="register" data-test="register-button">Register</button>
-        <p v-if="successfulRegistry">
-          You've successfully registered. Now log in and start drawing comics of
-          your cats!!
-        </p>
-        <ul v-if="registryErrors">
-          <li
-            class="error"
-            v-for="(error, index) in registryErrors"
-            :key="index"
-          >
-            {{ error }}
-          </li>
-        </ul>
-        <p></p>
-      </div>
-    </div>
-    </div>
+   
+    
   </div>
 </template>
 
@@ -150,18 +69,7 @@ import Validator from "validatorjs";
 export default {
   data() {
     return {
-      data: {
-        email: "",
-        password: "",
-      },
-      registration: {
-        name: "",
-        email: "",
-        password: "",
-      },
-      successfulRegistry: false,
-      registryErrors: null,
-      loginErrors: null,
+      
       errors: null,
       showConfirmationMessage: false,
       post: {
