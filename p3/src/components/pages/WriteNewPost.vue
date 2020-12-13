@@ -196,7 +196,7 @@ export default {
       //citation: https://stackoverflow.com/questions/44806870/saving-canvas-to-json-and-loading-json-to-canvas
       let canvasData = document.getElementById("canvas").toDataURL();
       this.post.drawing = JSON.stringify(canvasData);
-      if (this.errors.length == 0) {
+      if (this.errors == null) {
         axios.post("/post", this.post).then((response) => {
           if (response.data.errors) {
             this.errors = response.data.errors;
