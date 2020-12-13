@@ -6,14 +6,14 @@
       <div id="inputs">
         <label for="title"
           >Add Your Blog Post Title Here:
-          <input type="text" v-model="post.title" id="title"
+          <input type="text" v-model="post.title" id="title" @blur="validate()"
         /></label>
         <cite>Required. Must be 3 - 100 characters. </cite>
-        <label for="image"
+        <!-- <label for="image"
           >Add An Image Name: <input type="text" v-model="post.image" id="image"
-        /></label>
+        /></label> -->
 
-        <p>Draw A Comic of Your Cat: </p>
+        <label>Draw A Comic of Your Cat:</label>
         <canvas
           width="200px"
           height="150px"
@@ -30,6 +30,7 @@
           id="content"
           rows="10"
           cols="116"
+          @blur="validate()"
         ></textarea>
       </div>
       <button @click="addPost">Create New Blog Post</button>
@@ -39,7 +40,6 @@
       <p v-else>
         {{ errors }}
       </p>
-      
     </div>
     <div v-else class="account">
       <div>
@@ -60,7 +60,9 @@
           /></label>
         </div>
 
-        <button @click="login" v-touch:tap="login" data-test="login-button">Login</button>
+        <button @click="login" v-touch:tap="login" data-test="login-button">
+          Login
+        </button>
 
         <ul v-if="loginErrors">
           <li class="error" v-for="(error, index) in loginErrors" :key="index">
@@ -97,7 +99,11 @@
           your cats!!
         </p>
         <ul v-if="registryErrors">
-          <li class="error" v-for="(error, index) in registryErrors" :key="index">
+          <li
+            class="error"
+            v-for="(error, index) in registryErrors"
+            :key="index"
+          >
             {{ error }}
           </li>
         </ul>
@@ -109,7 +115,7 @@
 
 <script>
 import { axios } from "@/common/app.js";
-
+import Validator from "validatorjs";
 
 export default {
   data() {
@@ -126,13 +132,13 @@ export default {
       successfulRegistry: false,
       registryErrors: null,
       loginErrors: null,
-      errors: null, 
+      errors: null,
       showConfirmationMessage: false,
       post: {
         title: "",
         image: "",
         content: "",
-        drawing: ""
+        drawing: "",
       },
       paint: false,
       clickX: [],
@@ -174,25 +180,33 @@ export default {
       });
     },
     addPost() {
-
       //citation: https://stackoverflow.com/questions/44806870/saving-canvas-to-json-and-loading-json-to-canvas
-      let canvasData = document.getElementById("canvas").toDataURL(); 
+      let canvasData = document.getElementById("canvas").toDataURL();
       this.post.drawing = JSON.stringify(canvasData);
-
-      axios.post("/post", this.post).then((response) => {
-        if (response.data.errors) {
-          this.errors = response.data.errors;
-        } else {
-          this.$emit("update-posts");
-          this.showConfirmationMessage = true;
-          this.post.title = "";
-          this.post.content = "";
-          this.post.image = "";
-          this.post.drawing = "";
-        }
-      });
+      if (this.errors.length == 0) {
+        axios.post("/post", this.post).then((response) => {
+          if (response.data.errors) {
+            this.errors = response.data.errors;
+          } else {
+            this.$emit("update-posts");
+            this.showConfirmationMessage = true;
+            this.post.title = "";
+            this.post.content = "";
+            this.post.image = "";
+            this.post.drawing = "";
+          }
+        });
+      }
     },
+    validate() {
+      let validator = new Validator(this.post, {
+        title: "required|between:3,100",
+        comment: "required|min:10",
+      });
+      this.errors = validator.errors.all();
 
+      return validator.passes();
+    },
     //STOP - Don't grade after this point.
     //Citation: The following is based on code that is not my own, but I thoguht it was a cool feature.
     startDrawingComic(event) {
@@ -221,7 +235,7 @@ export default {
     },
     redraw(context) {
       context = context.getContext("2d");
-      context.clearRect(0, 0, context.canvas.width, context.canvas.height); 
+      context.clearRect(0, 0, context.canvas.width, context.canvas.height);
       context.strokeStyle = "#000000";
       context.lineJoin = "round";
       context.lineWidth = 5;
