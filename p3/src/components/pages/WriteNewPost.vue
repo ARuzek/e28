@@ -6,14 +6,14 @@
       <div id="inputs">
         <label for="title"
           >Add Your Blog Post Title Here:
-          <input type="text" v-model="post.title" id="title" @blur="validate()"
+          <input type="text" required v-model="post.title" id="title" @blur="validate()"
         /></label>
         <cite>Required. Must be 3 - 100 characters. </cite>
         <!-- <label for="image"
           >Add An Image Name: <input type="text" v-model="post.image" id="image"
         /></label> -->
 
-        <label>Draw A Comic of Your Cat:</label>
+        <label>Use Your Mouse to Draw A Comic of Your Cat:</label>
         <canvas
           width="200px"
           height="150px"
@@ -31,7 +31,10 @@
           rows="10"
           cols="116"
           @blur="validate()"
+          required
         ></textarea>
+        <cite>Required. Must be at least 10 characters. </cite>
+
       </div>
       <button @click="addPost">Create New Blog Post</button>
       <p v-if="showConfirmationMessage">
@@ -47,13 +50,14 @@
         <div>
           <label
             >Email:
-            <input type="text" data-test="email-input" v-model="data.email"
+            <input required type="text" data-test="email-input" v-model="data.email"
           /></label>
         </div>
         <div>
           <label
             >Password:
             <input
+              required
               type="password"
               data-test="password-input"
               v-model="data.password"
@@ -75,6 +79,7 @@
         <label
           >Name Please:
           <input
+            required
             type="text"
             data-test="register-name-input"
             v-model="registration.name"
@@ -82,6 +87,7 @@
         <label
           >Set an Email:
           <input
+            required
             type="text"
             data-test="register-email-input"
             v-model="registration.email"
@@ -89,6 +95,7 @@
         <label
           >Set Your Password:
           <input
+            required
             type="password"
             data-test="register-password-input"
             v-model="registration.password"
@@ -201,7 +208,7 @@ export default {
     validate() {
       let validator = new Validator(this.post, {
         title: "required|between:3,100",
-        comment: "required|min:10",
+        content: "required|min:10",
       });
       this.errors = validator.errors.all();
 
