@@ -1,7 +1,7 @@
 <template>
   <div>
       <p v-if="successfulLogin">
-          You've successfully logged in! Visit the home page to read abour cats or write your own post about your cats. 
+          You've successfully logged in! Visit the home page to read about cats or write your own post about your cats. 
         </p>
     <div v-else class="account">
       <div>

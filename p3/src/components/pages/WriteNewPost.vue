@@ -13,7 +13,15 @@
           <input type="text" required v-model="post.title" id="title" @blur="validate()"
         /></label>
         <cite>Required. Must be 3 - 100 characters. </cite>
-    
+        <ul v-if="errors">
+          <li
+            class="error"
+            v-for="(error, index) in errors.title"
+            :key="index"
+          >
+            {{ error}}
+          </li>
+        </ul>
         <label>Use Your Mouse to Draw A Comic of Your Cat:</label>
         <canvas
           width="200px"
@@ -35,6 +43,15 @@
           required
         ></textarea>
         <cite>Required. Must be at least 10 characters. </cite>
+        <ul v-if="errors">
+          <li
+            class="error"
+            v-for="(error, index) in errors.content"
+            :key="index"
+          >
+            {{ error}}
+          </li>
+        </ul>
 
       </div>
       <button @click="addPost">Create New Blog Post</button>
