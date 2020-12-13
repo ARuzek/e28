@@ -1,5 +1,9 @@
 <template>
   <div>
+    <p v-if="showConfirmationMessage">
+        Congrats! Your post is now published! Visit the home screen to see your published post. 
+    </p>
+    <div v-else>
     <div v-if="user">
       <h2>Add More Stories About Your Cats</h2>
 
@@ -34,9 +38,7 @@
 
       </div>
       <button @click="addPost">Create New Blog Post</button>
-      <p v-if="showConfirmationMessage">
-        Congrats! Your post is now published! Visit the home screen to see your published post. 
-      </p>
+      
       <ul v-if="errors">
           <li
             class="error"
@@ -119,6 +121,7 @@
         </ul>
         <p></p>
       </div>
+    </div>
     </div>
   </div>
 </template>

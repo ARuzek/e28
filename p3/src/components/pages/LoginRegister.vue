@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="account">
+      <p v-if="successfulLogin">
+          You've successfully logged in! Visit the home page to read abour cats or write your own post about your cats. 
+        </p>
+    <div v-else class="account">
       <div>
         <h2>Login</h2>
         <div>
@@ -23,9 +26,7 @@
         <button @click="login"  data-test="login-button">
           Login
         </button>
-        <p v-if="successfulLogin">
-          You've successfully logged in! Visit the home page to read abour cats or write your own post about your cats. 
-        </p>
+        
         <ul v-if="loginErrors">
           <li class="error" v-for="(error, index) in loginErrors" :key="index">
             {{ error }}
