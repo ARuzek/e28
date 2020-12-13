@@ -23,7 +23,9 @@
         <button @click="login"  data-test="login-button">
           Login
         </button>
-
+        <p v-if="successfulLogin">
+          You've successfully logged in! Visit the home page to read abour cats or write your own post about your cats. 
+        </p>
         <ul v-if="loginErrors">
           <li class="error" v-for="(error, index) in loginErrors" :key="index">
             {{ error }}
@@ -92,6 +94,7 @@ export default {
         password: "",
       },
       successfulRegistry: false,
+      successfulLogin: false,
       registryErrors: null,
       loginErrors: null,
       showConfirmationMessage: false,
@@ -109,8 +112,10 @@ export default {
       axios.post("login", this.data).then((response) => {
         if (response.data.authenticated) {
           this.$store.commit("setUser", response.data.user);
+          this.successfulLogin = true;
         } else {
           this.loginErrors = response.data.errors;
+          
         }
       });
     },
