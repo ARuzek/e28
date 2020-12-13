@@ -12,7 +12,10 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     { path: "/", component: HomePage },
-    { path: "/posts/new", component: WriteNewPost },
+    { path: "/login", component: LoginRegister },
+    { path: "/posts/new", component: WriteNewPost, meta: {
+      requiresAuth: false // Should be true, but I have the log in screen on the same page... oops. 
+  } },
     { path: "/posts/:id", component: Post, props: true },
   ],
 });

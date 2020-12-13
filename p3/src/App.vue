@@ -42,7 +42,7 @@ export default {
             paths: {
                 home: '/',
                 'create new post': '/posts/new',
-                'login / register': '/posts/new'
+                'login / register': '/login'
             },
         };
     },
