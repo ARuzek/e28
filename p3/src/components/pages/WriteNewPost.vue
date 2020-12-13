@@ -198,6 +198,9 @@ export default {
 </script>
 
 <style scoped>
+.error {
+    color: red; 
+}
 .account {
   display: flex;
   flex-direction: row;

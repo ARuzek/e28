@@ -75,6 +75,10 @@ export default {
 </script>
 
 <style scoped>
+
+.error {
+    color: red; 
+}
 h2,
 p,
 label,
