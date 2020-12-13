@@ -13,11 +13,18 @@
         @blur="validate()"
         required
       ></textarea>
+       <ul v-if="errors">
+          <li
+            class="error"
+            v-for="(error, index) in errors.content"
+            :key="index"
+          >
+            {{ error }}
+          </li>
+        </ul>
     </div>
     <button @click="addComment">Add Comment</button>
-    <p v-if="!showConfirmationMessage">
-      {{ errors }}
-    </p>
+    
     <p v-if="showConfirmationMessage">
       Congrats! Your comment is now published! Next time you visit, you will see it below. 
     </p>
