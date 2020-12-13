@@ -16,6 +16,31 @@ const router = new VueRouter({
     { path: "/posts/:id", component: Post, props: true },
   ],
 });
+
+router.beforeEach(async (to, from, next) => {
+
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  const decide = () => {
+      if (requiresAuth && !store.state.user) {
+          next('/denied');
+      }
+      else {
+          next();
+      }
+  }
+  
+  // If we don't have the user yet, dispatch our Vuex authUser action
+  if (store.state.user === null) {
+      store.dispatch('authUser').then(() => {
+          decide();
+      });
+  } else {
+      decide();
+  }
+
+});
+
 new Vue({
   router: router,
   store,

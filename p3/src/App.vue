@@ -61,7 +61,6 @@ export default {
     },
     mounted() {
         this.updatePosts();
-        this.$store.dispatch('authUser');
     },
 };
 </script>

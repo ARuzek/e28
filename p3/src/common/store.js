@@ -17,10 +17,16 @@ export default new Vuex.Store({
     actions: {
        
         authUser(context) {
-            axios.post('auth').then((response) => {
-                if (response.data.authenticated) {
-                    context.commit('setUser', response.data.user);
-                }
+            return new Promise((resolve) => {
+                axios.post('auth').then((response) => {
+                    if (response.data.authenticated) {
+                        context.commit('setUser', response.data.user);
+                    } else {
+                        context.commit('setUser', false);
+                    }
+        
+                    resolve();
+                });
             });
         },
     },
