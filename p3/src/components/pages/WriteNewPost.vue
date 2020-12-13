@@ -43,7 +43,7 @@
             v-for="(error, index) in errors"
             :key="index"
           >
-            {{ error.value }}
+            {{ error}}
           </li>
         </ul>
     </div>
