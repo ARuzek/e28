@@ -15,7 +15,7 @@ const router = new VueRouter({
     { path: "/", component: HomePage },
     { path: "/login", component: LoginRegister },
     { path: "/posts/new", component: WriteNewPost, meta: {
-      requiresAuth: false // Should be true, but I have the log in screen on the same page... oops. 
+      requiresAuth: true
   } },
     { path: "/posts/:id", component: Post, props: true },
   ],
