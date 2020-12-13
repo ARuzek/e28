@@ -19,7 +19,7 @@
       {{ errors }}
     </p>
     <p v-if="showConfirmationMessage">
-      Congrats! Your comment is now published!
+      Congrats! Your comment is now published! Next time you visit, you will see it below. 
     </p>
   </div>
 </template>
@@ -91,6 +91,9 @@ button,
 textarea {
   border-radius: 1rem;
   border: 1px solid #ffd9d9;
+}
+textarea {
+    padding: 1rem; 
 }
 label {
   margin: 1rem;

@@ -35,7 +35,7 @@
       </div>
       <button @click="addPost">Create New Blog Post</button>
       <p v-if="showConfirmationMessage">
-        Congrats! Your post is now published!
+        Congrats! Your post is now published! Visit the home screen to see your published post. 
       </p>
       <ul v-if="errors">
           <li
@@ -43,7 +43,7 @@
             v-for="(error, index) in errors"
             :key="index"
           >
-            {{ error }}
+            {{ error.value }}
           </li>
         </ul>
     </div>
@@ -302,6 +302,9 @@ button,
 textarea {
   border-radius: 1rem;
   border: 1px solid #ffd9d9;
+}
+textarea {
+  padding: 1rem; 
 }
 label {
   margin: 1rem;
