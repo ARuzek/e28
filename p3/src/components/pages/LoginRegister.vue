@@ -109,7 +109,6 @@ export default {
       axios.post("login", this.data).then((response) => {
         if (response.data.authenticated) {
           this.$store.commit("setUser", response.data.user);
-          router.push('/posts/new')
         } else {
           this.loginErrors = response.data.errors;
         }

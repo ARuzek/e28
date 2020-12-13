@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import HomePage from "./components/pages/HomePage.vue";
 import Post from "./components/pages/Post.vue";
 import WriteNewPost from "@/components/pages/WriteNewPost.vue";
+import LoginRegister from "@/components/pages/LoginRegister.vue";
 import store from '@/common/store.js';
 Vue.config.productionTip = false;
 
