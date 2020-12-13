@@ -9,10 +9,7 @@
           <input type="text" required v-model="post.title" id="title" @blur="validate()"
         /></label>
         <cite>Required. Must be 3 - 100 characters. </cite>
-        <!-- <label for="image"
-          >Add An Image Name: <input type="text" v-model="post.image" id="image"
-        /></label> -->
-
+    
         <label>Use Your Mouse to Draw A Comic of Your Cat:</label>
         <canvas
           width="200px"
@@ -196,7 +193,6 @@ export default {
       //citation: https://stackoverflow.com/questions/44806870/saving-canvas-to-json-and-loading-json-to-canvas
       let canvasData = document.getElementById("canvas").toDataURL();
       this.post.drawing = JSON.stringify(canvasData);
-      if (this.errors == null) {
         axios.post("/post", this.post).then((response) => {
           if (response.data.errors) {
             this.errors = response.data.errors;
@@ -209,7 +205,7 @@ export default {
             this.post.drawing = "";
           }
         });
-      }
+      
     },
     validate() {
       let validator = new Validator(this.post, {
