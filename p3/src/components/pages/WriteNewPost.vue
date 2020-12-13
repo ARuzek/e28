@@ -40,9 +40,15 @@
       <p v-if="showConfirmationMessage">
         Congrats! Your post is now published!
       </p>
-      <p v-else>
-        {{ errors }}
-      </p>
+      <ul v-if="errors">
+          <li
+            class="error"
+            v-for="(error, index) in errors"
+            :key="index"
+          >
+            {{ error }}
+          </li>
+        </ul>
     </div>
     <div v-else class="account">
       <div>
@@ -286,6 +292,8 @@ h2 {
 canvas {
   width: 200px;
   height: 150px;
+  margin: 0 auto;
+ 
 }
 div {
   max-width: 900px;
@@ -313,7 +321,6 @@ button:hover {
   background-color: lightpink;
 }
 cite {
-  margin-top: -10px;
   margin-left: 16px;
 }
 </style>
