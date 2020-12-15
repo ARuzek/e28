@@ -23,3 +23,19 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+// https://on.cypress.io/custom-commands
+
+// User
+let user = {
+    name: 'Jill Harvard',
+    email: 'jill@harvard.edu',
+    password: 'asdfasdf'
+}
+
+Cypress.Commands.add('login', () => {
+    cy.visit('/login');
+    cy.get('[data-test=email-input]').clear().type(user.email);
+    cy.get('[data-test=password-input]').clear().type(user.password);
+    cy.get('[data-test=login-button]').click();
+})

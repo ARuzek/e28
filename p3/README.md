@@ -20,5 +20,8 @@ Canvas drawing tool from http://www.williammalone.com/articles/create-html5-canv
 Saving Canvas and Re-Heating it into an image: https://stackoverflow.com/questions/44806870/saving-canvas-to-json-and-loading-json-to-canvas
 https://css-tricks.com/get-original-image-data-url/
 
+Guide for testing: 
+https://docs.cypress.io/guides/getting-started/testing-your-app.html#Logging-in
+
 
 ## Notes for instructor
