@@ -1,13 +1,7 @@
 # Project 3
 
 - By: Amelia Ruzek
-- Production URL: <http://p2.e28aruzek.me/>
-
-## Pages summary
-
-## SFC summary
-
-## Server interaction
+- Production URL: <http://p3.e28aruzek.me/>
 
 ## Outside resources
 
@@ -21,7 +15,10 @@ Saving Canvas and Re-Heating it into an image: https://stackoverflow.com/questio
 https://css-tricks.com/get-original-image-data-url/
 
 Guide for testing: 
-https://docs.cypress.io/guides/getting-started/testing-your-app.html#Logging-in
+https://docs.cypress.io/guides/getting-started/
 
 
 ## Notes for instructor
+
+I did have some trouble with testing as you'll see. It doesn't hold the logged in state, so I couldn't test logged in features as much as I'd wanted to. In addition, the registration form thinks one of the fields is disabled for some reason. In retrospect, I should have allowed myself more time to ask about these issues.
+
